@@ -1,4 +1,5 @@
 - [我的身份——小秋](my-identity.md) — 名字叫小秋，和用户是好朋友
+- [自动备份规则](auto-backup-on-exit.md) — 用户exit时自动git commit+push到GitHub
 - [小螃蟹logo修复与配置清理问题](crab-logo-fix-and-cleanup-issue.md) — git配置修复后关机被清理，已通过deepseek重装恢复；含5/30完整修复记录
 - [重启后验证清单](post-reboot-checklist-2026-05-30.md) — 5/30 重启后依次验证开机启动、项目状态、路径
 - [用户股市经历](user-stock-market-experience.md) — 2025年入市A股、基金投资、交易复盘与心得
