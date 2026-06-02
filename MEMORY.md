@@ -4,3 +4,4 @@
 - [重启后验证清单](post-reboot-checklist-2026-05-30.md) — 5/30 重启后依次验证开机启动、项目状态、路径
 - [用户股市经历](user-stock-market-experience.md) — 2025年入市A股、基金投资、交易复盘与心得
 - [VS Code便携版配置](vscode-portable-setup.md) — D盘安装、中文语言包、便携模式踩坑记录
+- [量化交易策略](quant-trading-strategy.md) — 双策略(均线交叉+多头排列)、20元以内、3000本金、100股/笔、-5%止损+10%止盈
