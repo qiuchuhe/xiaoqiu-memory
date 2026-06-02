@@ -552,7 +552,7 @@ def _batch_screen(codes_dict, label=""):
         turnover = q.get('turnover')
         if price is None or pct is None:
             continue
-        if price >= 25:
+        if price >= 20:
             continue
         if pct < 1 or pct > 5:
             continue
@@ -723,7 +723,7 @@ def _batch_screen_xq(codes_dict):
         turnover = q.get('turnover')
         if price is None or pct is None:
             continue
-        if price >= 25:
+        if price >= 20:
             continue
         if pct < 2 or pct > 7:
             continue
@@ -855,7 +855,7 @@ def screen_stocks():
     """策略v2.0 多因子选股 — 自选股优先 + 全市场补充
     输出候选列表，需人工核对筹码峰"""
     print(f"\n  {C.M}═══ 多因子选股 v2.0 ═══{C.Z}")
-    print(f"  {C.D}条件: 涨幅1-5% | 股价<25元 | MA5>10>15>30 | 温和放量1.2-3x | 换手1-8%{C.Z}")
+    print(f"  {C.D}条件: 涨幅1-5% | 股价<20元 | MA5>10>15>30 | 温和放量1.2-3x | 换手1-8%{C.Z}")
     print(f"  {C.D}流程: 🏠自选股优先筛选 → 🌐全市场补充筛选 → 📋汇总{C.Z}")
     print(f"  {C.D}排除: 创业板/科创板/ST{C.Z}\n")
 
