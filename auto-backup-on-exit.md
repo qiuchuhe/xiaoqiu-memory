@@ -9,7 +9,7 @@ metadata:
 
 用户说"exit"或"退出"时，必须先执行以下备份流程再结束会话：
 
-1. `cd C:/Users/ASUS/AI小秋量化 && git add -A && git commit -m "auto-backup $(date '+%Y-%m-%d %H:%M')" && git push origin master`
+1. `cd D:/AI小秋 && git add -A && git commit -m "auto-backup $(date '+%Y-%m-%d %H:%M')" && git push origin master`
 2. 确认推送成功后再结束
 3. 如果推送失败，告知用户手动处理
 

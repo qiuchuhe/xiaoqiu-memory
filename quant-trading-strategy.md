@@ -8,7 +8,7 @@ metadata:
 ---
 
 ## 策略概述
-基于同花顺模拟盘的小资金量化交易系统，项目目录：`C:\Users\ASUS\AI小秋量化\`
+基于同花顺模拟盘的小资金量化交易系统，项目目录：`D:\AI小秋\量化\`
 
 ## 核心约束
 - **股价上限**: 20元以内（策略B代码里是25，但用户要求20元以内）
@@ -55,7 +55,7 @@ metadata:
 
 ## 运行方式
 ```bash
-cd C:\Users\ASUS\AI小秋量化
+cd D:\AI小秋\量化
 python xiaoqiu_monitor.py --dry          # 模拟盘模式(只看信号不下单)
 python xiaoqiu_monitor.py --once         # 单次扫描
 python xiaoqiu_monitor.py --interval 120 # 每120秒扫描
