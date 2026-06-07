@@ -10,8 +10,9 @@ metadata:
 用户说"exit"或"退出"时，必须先执行以下备份流程再结束会话：
 
 1. `cd D:/AI小秋 && git add -A && git commit -m "auto-backup $(date '+%Y-%m-%d %H:%M')" && git push origin master`
-2. 确认推送成功后再结束
-3. 如果推送失败，告知用户手动处理
+2. 如果 SSL 证书报错，先执行 `git config --global http.schannelCheckRevoke false`
+3. 确认推送成功后再结束
+4. 如果推送失败，告知用户手动处理
 
 **Why:** 用户之前因关机导致数据丢失，需要自动备份机制
 **How to apply:** 每次用户表达退出/结束/bye/exit等意图时，先执行备份脚本
