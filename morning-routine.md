@@ -27,10 +27,10 @@ metadata:
 - 读取当日 `.position.json`
 - 列出所有持仓，确认操作计划（止损/止盈）
 
-### 3. 三策略扫描
-- **策略1**: `recon_fast.py`，MA金叉+多头排列共振
-- **策略2A**: `strategy2A_breakout.py --loop`，炸板回封监控
-- **策略2B**: `strategy2_halfway.py`，首板半路候选
+### 3. 策略扫描
+- **策略1**: `cd D:\AI小秋\策略量化\策略1 && python scanner.py --once`，均线多头+温和放量
+- **策略2**（待部署）: `three_to_four.py`，3进4打板
+- **持仓监控**: `cd D:\AI小秋\量化 && python monitor.py --once`，五级卖出信号检测
 
 ### 4. 汇总讨论
 - 持仓操作 + 候选优先级 + 风险提示

@@ -7,28 +7,34 @@ metadata:
   originSessionId: 37d1cc60-30ad-4ee2-89ab-dcd6d19fa693
 ---
 
-## 项目结构
+## 项目结构（2026-06-14 大整合后）
 
 ```
 D:\AI小秋\
-├── 策略量化\              ← 🆕 策略代码（新建）
-│   └── 策略1\             ← 均线多头+温和放量
-│       ├── config.py      ← 参数配置
-│       ├── scanner.py     ← 扫描引擎
-│       └── README.md      ← 策略说明
+├── 小秋核心\              ← 🆕 共享库（所有脚本共用）
+│   ├── utils.py           ← HTTP/颜色/编码/代码转换
+│   ├── data.py            ← 腾讯行情+K线+股票列表+同花顺深度
+│   └── indicators.py      ← MA/MACD/量比
 │
-├── 量化\                  ← 工具集 + 历史代码
-│   ├── stock_quant.py     ← 行情看板/回测/自选股管理（已精简）
-│   ├── xiaoqiu_monitor.py ← 实时监控（待更新对接策略1）
-│   ├── xiaoqiu_launcher.py ← 统一启动器 v2.0
-│   ├── alert_daemon.py    ← 止损止盈预警
+├── 策略量化\
+│   ├── 策略1\             ← 均线多头+温和放量
+│   │   ├── config.py      ← 参数配置
+│   │   └── scanner.py     ← 扫描引擎（已精简→引核心库）
+│   └── 策略2\
+│       └── three_to_four.py ← 3进4打板策略
+│
+├── 量化\                  ← 精简为4个文件
+│   ├── monitor.py         ← 🆕 三合一监控(止损+止盈+卖点+桌面通知)
+│   ├── stock_quant.py     ← 行情看板/自选股/同花顺深度（已精简）
+│   ├── market_intel.py    ← 盘后情报收集（HTML报告）
 │   ├── auto_trade.py      ← easytrader下单
-│   ├── 闲鱼代写/          ← 3进4打板策略
-│   └── .my_watchlist.json ← 自选股列表
+│   └── .position.json     ← 持仓数据
 │
 ├── xiaoqiu-memory/        ← 记忆备份（独立repo）
 └── .gitignore
 ```
+
+> 6/14 大整合：删除4个冗余脚本(-1100行)，新建小秋核心共享库(+325行)，代码从~4600行精简至~3100行，token消耗降低约33%。
 
 ## 策略一：均线多头+温和放量
 
