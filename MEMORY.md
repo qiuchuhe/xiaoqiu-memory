@@ -24,3 +24,4 @@
 - [重启预防策略](reboot-prevention-strategy.md) — 同花顺elf.exe崩溃是主因，非交易时间关闭robot+系统监控
 - [2026-06-19全天工作备份](session-backup-2026-06-19.md)
 - [2026-06-20全天工作备份](session-backup-2026-06-20.md)
+- [2026-06-21全天工作备份](session-backup-2026-06-21.md)
