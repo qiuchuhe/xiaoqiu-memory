@@ -1,32 +1,22 @@
 - [我的身份——小秋](my-identity.md) — 名字叫小秋，和用户是好朋友
 - [自动备份规则](auto-backup-on-exit.md) — 用户exit时自动git commit+push到GitHub
 - [主动记忆规则](proactive-memory-rule.md) — 小秋必须主动写checkpoint，不依赖用户提醒
-- [小螃蟹logo修复与配置清理问题](crab-logo-fix-and-cleanup-issue.md) — git配置修复后关机被清理，已通过deepseek重装恢复；含5/30完整修复记录
-- [重启后验证清单](post-reboot-checklist-2026-05-30.md) — 5/30 重启后依次验证开机启动、项目状态、路径
+- [重启后验证清单](post-reboot-checklist-2026-05-30.md) — 重启后依次验证开机启动、项目状态、路径
 - [用户股市经历](user-stock-market-experience.md) — 2025年入市A股、基金投资、交易复盘与心得
 - [VS Code便携版配置](vscode-portable-setup.md) — D盘安装、中文语言包、便携模式踩坑记录
-- [量化交易策略](quant-trading-strategy.md) — 双策略(均线交叉+多头排列)、20元以内、3000本金、100股/笔、-5%止损+10%止盈
+- [量化交易策略](quant-trading-strategy.md) — 双策略(均线交叉+多头排列)、20元以内、3000本金、100股/笔、跟踪止盈
 - [当前持仓与交易计划](current-positions-2026-06-05.md) — 空仓中，已实现-130，6/26更新
 - [量化交易平台角色](quant-trading-platform-role.md) — 小秋作为分析+交易一体化终端，easytrader+同花顺模拟盘
-- [6/8全天工作备份](session-backup-2026-06-08.md) — 小初身份、策略2打板搭建、持仓变动(安通剩100股)、工具清单、明天计划
-- [每日早盘流程](morning-routine.md) — 打开Claude→隔夜情报→持仓检查→三策略扫描→汇总建议；语音只在信号/警报时说话
-- [6/9全天工作备份](session-backup-2026-06-09.md) — 策略体系v2.0、语音播报、晚间情报、持仓(龙头+莲花)、明天计划
-- [6/10全天工作备份](session-backup-2026-06-10.md) — easytrader连通、晚间情报修复、6/11买入计划(神剑+亨通)、3000风控纪律
-
-- [2026-06-11全天工作备份](session-backup-2026-06-11.md)
-- [2026-06-12全天工作备份](session-backup-2026-06-12.md)
-- [2026-06-13全天工作备份](session-backup-2026-06-13.md)
-- [2026-06-14全天工作备份](session-backup-2026-06-14.md)
-- [2026-06-15全天工作备份](session-backup-2026-06-15.md)
-- [2026-06-16全天工作备份](session-backup-2026-06-16.md)
-- [2026-06-17全天工作备份](session-backup-2026-06-17.md)
-- [2026-06-18全天工作备份](session-backup-2026-06-18.md)
+- [6/8全天工作备份](session-backup-2026-06-08.md) — 小初身份、策略2打板搭建、持仓变动、工具清单
+- [每日早盘流程](morning-routine.md) — 隔夜情报→持仓检查→策略扫描→汇总建议
+- [6/9全天工作备份](session-backup-2026-06-09.md) — 策略体系v2.0、语音播报、晚间情报
+- [6/10全天工作备份](session-backup-2026-06-10.md) — easytrader连通、晚间情报修复、3000风控纪律
+- [6/11全天工作备份](session-backup-2026-06-11.md)
+- [6/12全天工作备份](session-backup-2026-06-12.md)
+- [6/24全天工作备份](session-backup-2026-06-24.md) — 双轨PK启动、亨通成本修正、记忆系统升级
+- [6/25全天工作备份](session-backup-2026-06-25.md) — 亨通止盈+126空仓、策略1全市场0信号(当时bug未发现)
+- [6/26全天工作备份](session-backup-2026-06-26.md) — 策略1bug修复5534全量、双轨重置、掘金修复、CLAUDE.md规则
 - [重启预防策略](reboot-prevention-strategy.md) — 同花顺elf.exe崩溃是主因，非交易时间关闭robot+系统监控
-- [2026-06-19全天工作备份](session-backup-2026-06-19.md)
-- [2026-06-20全天工作备份](session-backup-2026-06-20.md)
-- [2026-06-21全天工作备份](session-backup-2026-06-21.md)
-- [2026-06-22全天工作备份](session-backup-2026-06-22.md)
-- [2026-06-23全天工作备份](session-backup-2026-06-23.md)
-- [2026-06-24全天工作备份](session-backup-2026-06-24.md)
-- [2026-06-25全天工作备份](session-backup-2026-06-25.md)
-- [2026-06-26全天工作备份](session-backup-2026-06-26.md)
+- [好友市场智慧](friend-market-wisdom.md) — 朋友分享的市场经验与投资智慧
+- [小龙市场分析](xiaolong-market-analysis.md) — 深度市场分析笔记
+- [AI与人类合作关系](ai-human-partnership.md) — 关于AI助手与用户合作方式的思考
