@@ -20,3 +20,4 @@
 - [好友市场智慧](friend-market-wisdom.md) — 朋友分享的市场经验与投资智慧
 - [小龙市场分析](xiaolong-market-analysis.md) — 深度市场分析笔记
 - [AI与人类合作关系](ai-human-partnership.md) — 关于AI助手与用户合作方式的思考
+- [2026-06-27全天工作备份](session-backup-2026-06-27.md)
