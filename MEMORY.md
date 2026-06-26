@@ -6,7 +6,7 @@
 - [用户股市经历](user-stock-market-experience.md) — 2025年入市A股、基金投资、交易复盘与心得
 - [VS Code便携版配置](vscode-portable-setup.md) — D盘安装、中文语言包、便携模式踩坑记录
 - [量化交易策略](quant-trading-strategy.md) — 双策略(均线交叉+多头排列)、20元以内、3000本金、100股/笔、-5%止损+10%止盈
-- [当前持仓与交易计划](current-positions-2026-06-05.md) — 持有600630龙头股份100股@9.09 + 600186莲花控股100股@11.54，安通已清仓，累计-122，6/9更新
+- [当前持仓与交易计划](current-positions-2026-06-05.md) — 空仓中，已实现-130，6/26更新
 - [量化交易平台角色](quant-trading-platform-role.md) — 小秋作为分析+交易一体化终端，easytrader+同花顺模拟盘
 - [6/8全天工作备份](session-backup-2026-06-08.md) — 小初身份、策略2打板搭建、持仓变动(安通剩100股)、工具清单、明天计划
 - [每日早盘流程](morning-routine.md) — 打开Claude→隔夜情报→持仓检查→三策略扫描→汇总建议；语音只在信号/警报时说话
