@@ -15,7 +15,7 @@
 - [6/12全天工作备份](session-backup-2026-06-12.md)
 - [6/24全天工作备份](session-backup-2026-06-24.md) — 双轨PK启动、亨通成本修正、记忆系统升级
 - [6/25全天工作备份](session-backup-2026-06-25.md) — 亨通止盈+126空仓、策略1全市场0信号(当时bug未发现)
-- [6/26全天工作备份](session-backup-2026-06-26.md) — 策略1bug修复5534全量、双轨重置、掘金修复、CLAUDE.md规则
+- [2026-06-26全天工作备份](session-backup-2026-06-26.md)
 - [重启预防策略](reboot-prevention-strategy.md) — 同花顺elf.exe崩溃是主因，非交易时间关闭robot+系统监控
 - [好友市场智慧](friend-market-wisdom.md) — 朋友分享的市场经验与投资智慧
 - [小龙市场分析](xiaolong-market-analysis.md) — 深度市场分析笔记
