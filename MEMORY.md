@@ -21,3 +21,4 @@
 - [小龙市场分析](xiaolong-market-analysis.md) — 深度市场分析笔记
 - [AI与人类合作关系](ai-human-partnership.md) — 关于AI助手与用户合作方式的思考
 - [2026-06-27全天工作备份](session-backup-2026-06-27.md)
+- [2026-06-28全天工作备份](session-backup-2026-06-28.md)
