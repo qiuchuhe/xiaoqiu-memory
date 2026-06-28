@@ -29,7 +29,6 @@ metadata:
 
 ### 3. 策略扫描
 - **策略1**: `cd D:\AI小秋\策略量化\策略1 && python scanner.py --once`，均线多头+温和放量
-- **策略2**（待部署）: `three_to_four.py`，3进4打板
 - **持仓监控**: `cd D:\AI小秋\量化 && python monitor.py --once`，五级卖出信号检测
 
 ### 4. 汇总讨论
