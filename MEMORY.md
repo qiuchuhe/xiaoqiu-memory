@@ -19,6 +19,7 @@
 - [重启预防策略](reboot-prevention-strategy.md) — 同花顺elf.exe崩溃是主因，非交易时间关闭robot+系统监控
 - [好友市场智慧](friend-market-wisdom.md) — 朋友分享的市场经验与投资智慧
 - [小龙市场分析](xiaolong-market-analysis.md) — 深度市场分析笔记
+- [用户市场框架](user-market-framework.md) — 自己的盘面框架：分歧承接、梯队连续性、资金切换轨迹
 - [AI与人类合作关系](ai-human-partnership.md) — 关于AI助手与用户合作方式的思考
 - [2026-06-27全天工作备份](session-backup-2026-06-27.md)
 - [2026-06-28全天工作备份](session-backup-2026-06-28.md)
