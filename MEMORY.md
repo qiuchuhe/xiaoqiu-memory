@@ -5,6 +5,7 @@
 - [用户股市经历](user-stock-market-experience.md) — 2025年入市A股、基金投资、交易复盘与心得
 - [VS Code便携版配置](vscode-portable-setup.md) — D盘安装、中文语言包、便携模式踩坑记录
 - [量化交易策略](quant-trading-strategy.md) — 双策略(均线交叉+多头排列)、20元以内、3000本金、100股/笔、跟踪止盈
+- [盈亏计算规则](pnl-calculation-rule.md) — 浮盈必须用成本价算，不能用当日涨幅代替
 - [当前持仓与交易计划](current-positions-2026-06-05.md) — 空仓中，已实现-130，6/26更新
 - [量化交易平台角色](quant-trading-platform-role.md) — 小秋作为分析+交易一体化终端，easytrader+同花顺模拟盘
 - [6/8全天工作备份](session-backup-2026-06-08.md) — 小初身份、策略2打板搭建、持仓变动、工具清单
