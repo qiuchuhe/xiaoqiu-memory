@@ -35,3 +35,4 @@
 - [2026-07-06全天工作备份](session-backup-2026-07-06.md)
 - [2026-07-07全天工作备份](session-backup-2026-07-07.md)
 - [扫描器盘中K线收盘价Bug](scanner-intraday-bug-kline-close.md) — scanner.py用昨日收盘算买点信号，盘中13只假信号
+- [2026-07-08全天工作备份](session-backup-2026-07-08.md)
