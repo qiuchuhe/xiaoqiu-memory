@@ -37,3 +37,5 @@
 - [扫描器盘中K线收盘价Bug](scanner-intraday-bug-kline-close.md) — scanner.py用昨日收盘算买点信号，盘中13只假信号
 - [2026-07-08全天工作备份](session-backup-2026-07-08.md)
 - [2026-07-09全天工作备份](session-backup-2026-07-09.md)
+- [7/10交易计划](tomorrow-plan-2026-07-10.md) — 三线ETF(算力AI+科创50+光模块)各800元 高开不追低开低吸
+- [7/10早盘预案](tomorrow-watch-2026-07-10.md) — 美股半导体反弹+2.23% 业绩爆表 OPEN NPO光互连催化 一式两份预案
