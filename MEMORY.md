@@ -42,3 +42,4 @@
 - [2026-07-10全天工作备份](session-backup-2026-07-10.md)
 - [自动补扫规则](auto-catchup-on-startup.md) — 打开Claude时自动检测错过窗口+补扫全部已过时段
 - [7/13交易计划](tomorrow-plan-2026-07-13.md) — 三只ETF持仓管理+止损纪律+科技回调应对
+- [7/13早盘预案](tomorrow-watch-2026-07-13.md) — SOX暴涨+3%+国常会算力催化 vs 周五套牢盘，一式两份预案
