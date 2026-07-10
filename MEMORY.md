@@ -41,3 +41,4 @@
 - [7/10早盘预案](tomorrow-watch-2026-07-10.md) — 美股半导体反弹+2.23% 业绩爆表 OPEN NPO光互连催化 一式两份预案
 - [2026-07-10全天工作备份](session-backup-2026-07-10.md)
 - [自动补扫规则](auto-catchup-on-startup.md) — 打开Claude时自动检测错过窗口+补扫全部已过时段
+- [7/13交易计划](tomorrow-plan-2026-07-13.md) — 三只ETF持仓管理+止损纪律+科技回调应对
