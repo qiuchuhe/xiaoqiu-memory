@@ -21,15 +21,17 @@ metadata:
 
 ## 🚨 CRITICAL（必须立即修复，共7项）
 
-| # | 问题 | 文件 | 后果 |
-|---|------|------|------|
-| 1 | 止损只会叫不会做 | monitor.py | 检测到止损→只写日志不自动下单 |
-| 2 | 仓位限制形同虚设 | config+auto_trade | 限制2只/100股，7/10照样买3只满仓94.7% |
-| 3 | track_b.py 旧bug没修 | track_b.py:388-432 | 盘中用昨日收盘算买点，轨道B信号全是假数据 |
-| 4 | 条件单路径过期 | conditional_orders.py:9 | 硬编码到2026-06-11，已失效一个月 |
-| 5 | 回测缺pd import | run_backtest.py + portfolio_backtest.py | pd.DataFrame()和pd.notna()调用时NameError |
-| 6 | 除零风险 | scanner.py:135 | ma10[-1]=0时未防护 |
-| 7 | 科创50占比50%过重 | 持仓结构 | 下午追高买入，非对称减仓刻不容缓 |
+| # | 问题 | 文件 | 后果 | 状态 |
+|---|------|------|------|:--:|
+| 1 | 止损只会叫不会做 | monitor.py | 检测到止损→只写日志不自动下单 | ✅ 已解决 |
+| 2 | 仓位限制形同虚设 | config+auto_trade | 限制2只/100股，7/10照样买3只满仓94.7% | ⚠️ 待修 |
+| 3 | track_b.py 旧bug没修 | track_b.py:388-432 | 盘中用昨日收盘算买点，轨道B信号全是假数据 | ⚠️ 待修 |
+| 4 | 条件单路径过期 | conditional_orders.py:9 | 硬编码到2026-06-11，已失效一个月 | ✅ 已解决 |
+| 5 | 回测缺pd import | run_backtest.py + portfolio_backtest.py | pd.DataFrame()和pd.notna()调用时NameError | ⚠️ 待修 |
+| 6 | 除零风险 | scanner.py:135 | ma10[-1]=0时未防护 | ⚠️ 待修 |
+| 7 | 科创50占比50%过重 | 持仓结构 | 下午追高买入，非对称减仓刻不容缓 | ⚠️ 待周一执行 |
+
+**#1 解决方案（7/11晚）：** 确认 easytrader + pywinauto GUI 自动化方案不可行（需要同花顺一直开着+登录，elf.exe 崩溃风险）。已删除 auto_trade.py 等5个废墟文件，改为同花顺自带条件单方案——每日开盘前运行 `condition_orders.py` 生成条件单参数，用户手动设到同花顺（服务端执行，不依赖电脑）。
 
 ## ⚠️ WARNING（建议近期修复，共8项）
 
