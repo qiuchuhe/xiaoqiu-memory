@@ -1,53 +1,28 @@
 ---
 name: session-backup-2026-07-13
-description: 7/13全天——秋策双核战法v3.1、评分体系重构、AB轨道合并、策略统一
+description: 7/13凌晨策略审查修复+峰谷定价适配+盘前情报
 metadata:
   type: project
 ---
 
-## 核心成果：策略输出质量升级 v3.1
+# 2026-07-13 凌晨工作备份
 
-### 取消的大方向
-- 否决了桌面GUI自动交易方案。用户实际是手动模式：四个时段扫描→排序→建议→手动同花顺下单
+## 策略审查修复
+- scanner.py 4个Bug修复: 重复main()、缺import re、classify_timing时间优先级漏洞、CONDITIONS全局污染
+- track_b.py 3个修复: 盘中实时价缺失(用昨天收盘判买点)、JSON缺score/timing、DEFAULT_HOT_SECTORS更新
 
-### 五大改进
+## DeepSeek峰谷定价适配
+- 高峰(9-12/14-18): 精简输出 — 9:25/10:03/14:33只列方向+TOP3
+- 低谷(12-14/18+): 重仓分析 — 13:07全评分展开, 21:57深度复盘
+- 7个cron全部重建
 
-1. **综合评分系统（0-100分）**
-   技术面75 + 朋友逻辑25：
-   - 买点质量25 | 均线距离15 | 量比强度15 | 涨幅位置10 | 换手率10
-   - 热门板块10 | 龙头排名10(#1=10,#2=8,#3=6) | 情报点名5
+## 盘前情报
+- 美股7/10: 三大指数齐涨, 英伟达+4%, SK海力士ADR+12.76%
+- 国常会: 算力网建设+新兴支柱产业 → 利好算力AI/半导体
+- 长鑫科技7/16申购(295亿) → 利好存储/科创50
+- 霍尔木兹7/12无限期封锁, 油价破80 → 利空大盘
+- 三只ETF持仓: 满仓2839.90, 算力AI-3.7%/光模块-3%/科创50-4.8%
 
-2. **买入时机四分类**
-   - 今日可买 / 今日可买+朋友确认 / 明日开盘买 / 等回落XX / 等放量确认
-
-3. **时段差异化** --window: auction/morning/midday/late
-
-4. **策略可插拔** strategies.json注册表
-
-5. **输出格式升级** 含评分、时机、止损、风险金额、盈亏比
-
-### 策略统一
-- 策略1+轨道B → 秋策·双核战法（一套评分体系统一输出）
-- 删除 dual_track.py/json（旧AB轨道PK系统）
-
-### 修改的文件
-- config.py: +SCORING +TIMING +WINDOW_CONFIG
-- scanner.py: +calc_score +classify_timing +_load_friend_data +_print_one_v3 +--window
-- track_b.py: 导入评分函数 +_print_result_v3 +--window
-- catchup_market.py: 从strategies.json读取 +传递--window
-
-### 新建文件
-- D:\AI小秋\策略量化\strategies.json
-
-### 删除文件
-- D:\AI小秋\量化\dual_track.py
-- D:\AI小秋\量化\dual_track.json
-
-### 盘前准备(7/14周一)
-- 持仓: 算力AI(159819)2.202、5G通信(159994)1.559、科创50(588000)2.333
-- 科创50最危险 2.209 vs 止损2.15
-- 霍尔木兹无限期封锁，周一大概率低开
-- 预案: 588000破2.15止损500股留100底仓
-
-**Why:** 策略输出从二分法升级到评分排序+时机分类，人工决策效率大幅提升
-**How to apply:** 交易时段跑catchup_market.py，按评分排序看#1即可
+## 修改文件
+- D:\AI小秋\策略量化\策略1\scanner.py
+- D:\AI小秋\策略量化\策略1	rack_b.py
