@@ -51,3 +51,4 @@
 - [2026-07-12全天工作备份](session-backup-2026-07-12.md)
 - [2026-07-13全天工作备份](session-backup-2026-07-13.md)
 - [2026-07-14全天工作备份](session-backup-2026-07-14.md)
+- [小秋推荐前检查规则](xiaoqiu-check-before-recommend.md) — 推荐方向前必须先列"为什么不成立"，禁止推销思维
