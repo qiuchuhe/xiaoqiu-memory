@@ -1,3 +1,4 @@
+- [Redeemer量化交易系统](redeemer-project-2026-07-17.md) — 7/17启动，FastAPI+Vue3，已完成后端骨架
 - [小野身份——姬野](xiaoye-identity.md) — VS Code IDE里的资深金融研究员，和小秋同门双剑合璧
 - [小野自动备份规则](xiaoye-auto-backup-timer.md) — 5分钟定时器，超时自动备份到D:\AI小野
 - [我的身份——小秋](my-identity.md) — 名字叫小秋，和用户是好朋友
