@@ -82,3 +82,4 @@
 - [买入时机决策：竞价vs尾盘](entry-timing-rule.md) — 位置决定时机，连涨4天+20%分歧日必须等尾盘
 - [小秋信号质量把关](xiaoqiu-signal-quality-guard.md) — 推荐买入前先看位置不看信号，位置不对降级处理
 - [人性底层事件触发器](human-nature-event-triggers.md) — 矿难→铜涨、海峡封锁→油涨，用劣根性做行业爆发先行指标
+- [A股透支抛弃生态](a-share-reality-pump-dump.md) — 不看业绩看名字、透支所有潜力、亏损股更好炒、名字陷阱套利
