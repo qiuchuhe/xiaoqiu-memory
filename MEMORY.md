@@ -89,3 +89,4 @@
 - [人性底层事件触发器](human-nature-event-triggers.md) — 矿难→铜涨、海峡封锁→油涨，用劣根性做行业爆发先行指标
 - [A股透支抛弃生态](a-share-reality-pump-dump.md) — 不看业绩看名字、透支所有潜力、亏损股更好炒、名字陷阱套利
 - [2026-08-11全天工作备份](session-backup-2026-08-11.md)
+- [2026-08-12全天工作备份](session-backup-2026-08-12.md)
