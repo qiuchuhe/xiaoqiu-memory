@@ -1,12 +1,20 @@
 ---
 name: buy-decision-framework
-description: 买入决策四步框架——位置定路径，高位等回调，低位看风险，价格决定是否出手
+description: 买入决策四步框架——位置定路径，高位等回调，低位看风险，价格决定是否出手。【强制关卡：不过四步不准出买入建议】
 metadata:
   type: project
-  related: [[xiaoqiu-signal-quality-guard]], [[entry-timing-rule]], [[stop-loss-placement-rule]], [[quant-trading-strategy]]
+  related: [[xiaoqiu-signal-quality-guard]], [[entry-timing-rule]], [[stop-loss-placement-rule]], [[quant-trading-strategy]], [[verify-before-speaking]], [[speak-after-done-protocol]]
 ---
 
-# 买入决策四步框架
+# 买入决策四步框架（强制关卡）
+
+## 🚨 级别升级：从"建议"变为"强制"
+
+2026-08-11 老兵+产品经理诊断结论：四步框架以前只是"建议"，用户/小秋在情绪驱动下可以跳过。现在升级为**不可跳过的强制关卡**。
+
+**不跑完四步，不允许输出"建议买入"、"可以买"、"关注买入"或任何等同含义的表述。**
+
+违规意味着：看到信号→兴奋→跳过流程→推荐。这是永杉16.20追进去的根因。
 
 ## 路径图
 
