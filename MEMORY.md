@@ -1,3 +1,4 @@
+- [扫描系统审查报告 8/11](scanner-system-review-2026-08-11.md) — 五脚本问题诊断+修复：股池统一/风险检测/track_B消费链路
 - [科技vs防御轮动规律](sector-rotation-tech-vs-defensive-2026.md) — 6/30起科技跌+防御涨，一升一降鲜明反向
 - [Redeemer量化交易系统](redeemer-project-2026-07-17.md) — 7/17启动，FastAPI+Vue3，已完成后端骨架
 - [小野身份——姬野](xiaoye-identity.md) — VS Code IDE里的资深金融研究员，和小秋同门双剑合璧
