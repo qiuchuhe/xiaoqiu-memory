@@ -93,3 +93,4 @@
 - [2026-08-13全天工作备份](session-backup-2026-08-13.md)
 - [2026-08-14全天工作备份](session-backup-2026-08-14.md)
 - [2026-08-15全天工作备份](session-backup-2026-08-15.md)
+- [多AI角色体系](multi-ai-role-system.md) — 老兵给经验、产品经理理方案、小秋落地构建
