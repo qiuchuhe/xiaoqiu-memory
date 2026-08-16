@@ -96,4 +96,5 @@
 - [多AI角色体系](multi-ai-role-system.md) — 老兵给经验、产品经理理方案、小秋落地构建
 - [直接对话工作流](direct-chat-workflow.md) — 网页版量化系统不常用，日常都在对话里操作，网页端功能优先级低
 - [2026-08-16全天工作备份](session-backup-2026-08-16.md)
+- [交易时段工作模式](trading-hours-work-mode.md) — 18点后深聊，白天只自动扫描，14:30定操作，简洁点重点
 - [2026-08-17全天工作备份](session-backup-2026-08-17.md)
