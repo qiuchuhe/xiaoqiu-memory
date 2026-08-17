@@ -1,42 +1,43 @@
 ---
 name: scanner-intraday-bug-kline-close
-description: 策略1扫描器盘中买点信号计算用的是昨日K线收盘价，不是实时价
+description: 同花顺K线"是否含今日"随时间变化，取"昨日"数据必须动态判断不能写死索引
 metadata: 
   node_type: memory
   type: project
   originSessionId: cec57627-3c55-4b03-a8c8-252a922993d6
-  modified: 2026-08-15T07:35:31.559Z
+  modified: 2026-08-17T15:49:20.328Z
 ---
 
-## 问题
+## 核心规律（8/17 实测确认）
 
-scanner.py 的 `deep_analyze()` 第107行用 `close_today = closes[-1]` 计算买点信号，但 `get_kline()` 从同花顺API取的日K线**盘中不包含当天K线**，最新一根是昨日收盘价。
+同花顺 K线接口 `http://d.10jqka.com.cn/v2/line/hs_{code}/01/last.js` 返回的"最后一根是否含今日"是**随时间的**：
 
-## 后果
+| 场景 | kl[-1] | kl[-2] |
+|---|---|---|
+| 盘中（交易时段） | 昨日 | 前日 |
+| 盘后（收盘后） | 今日 | 昨日 |
 
-- 显示的 `price` 是腾讯实时行情（对的）
-- 买点A/B的信号判断用的是昨日收盘价（错的）
-- 导致盘中扫描的所有买入信号都是垃圾数据
-- 典型：宝光股份实时已翻红+1%，但信号按昨日收盘算显示-2.5%
+所以 **`get_kline()` 里没有固定的"昨日=kl[-1]"或"昨日=kl[-2]"**，取决于当前是盘中还是盘后。
 
-## 修复方向
+## 正确做法：动态判断
 
-- 盘中模式需用 `candidate["price"]`（腾讯实时价）替代 `closes[-1]` 做信号判断
-- 或把实时价追加到 closes 数组末尾再算MA和信号
-- K线API: `http://d.10jqka.com.cn/v2/line/hs_{code}/01/last.js`，盘中不含当日
+```
+has_today = str(kl[-1]["date"]).replace("-", "") == today
+昨日K线 = kl[-2] if has_today else kl[-1]
+```
+
+已落地两处（口径一致）：
+- `monitor.py` 的 `_kline_has_today(kl)`（主题4，2026-08-17）
+- `scanner.py` 的 `prev_kline`，挂在已有的 `last_kline_date != today_str` 判断里（P3，2026-08-17）
+
+## 踩坑历史（三次）
+
+1. **scanner.py 盘中买点信号**：`close_today = closes[-1]` 盘中取成昨日收盘，13只假信号。已修（盘中修复 v2.1，用腾讯实时价填充）。
+2. **monitor.py 止损线 prev_low**：先写 `kl[-2]`（盘中取成前日低），8/15 改成 `kl[-1]`——但那只对盘中成立，**盘后 kl[-1]=今日又会取成今低**。8/17 用 `_kline_has_today` 彻底修对。
+3. **scanner.py prev_low/open_chg**：`prev_low=kl[-2]` 盘中错、`open_chg` 基准 `kl[-1]["close"]` 盘后错。8/17 统一改用 `prev_kline`。
 
 ## 教训
 
-- 盘中扫描前必须先验证K线数据是否有今日
-- 不能假设K线 `closes[-1]` 是实时价
-- 输出报告时必须标注数据时间戳，区分实时价 vs 昨日收盘
-
-## 同源坑：monitor.py 止损线（8/15 修复）
-
-同一个「盘中 kl[-1]=昨日、kl[-2]=前日」的语义，在 monitor.py 里又踩了一次：
-
-- `check_signals()` 和 `run_check()` 里 `prev_low = kl[-2]`，注释误写「kl[-2] 为昨日日K」
-- 实际 kl[-2] 是**前日**低点，导致未盈利止损线一直用错（前日低×0.98 而非昨低×0.98）
-- 已修复为 `kl[-1]`
-
-教训：凡是用 get_kline 取「昨日」数据的代码，一律用 kl[-1]，kl[-2] 是前日。
+- 凡是用 `get_kline` 取「昨日」数据的代码，**一律动态判断是否含今日**，禁止写死 `kl[-1]` 或 `kl[-2]`。
+- 早期记忆"一律用 kl[-1]"是错的（只对盘中成立），已在本文件纠正。
+- 盘中扫描前先验证 K线是否含今日；输出报告标注数据时间戳，区分实时价 vs 昨日收盘。
