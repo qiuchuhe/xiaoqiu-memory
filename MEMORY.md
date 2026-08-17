@@ -40,7 +40,8 @@
 - [2026-07-06全天工作备份](session-backup-2026-07-06.md)
 - [2026-07-07全天工作备份](session-backup-2026-07-07.md)
 - [同花顺K线含今日随时间变](scanner-intraday-bug-kline-close.md) — 盘中kl[-1]=昨日/盘后kl[-1]=今日，取"昨日"必须动态判断不能写死索引
-- [修理摘要双份保存](repair-summary-dual-save.md) — 修理后摘要存AI小秋+桌面ai代码修理两份
+- [桌面Claude归档规则](desktop-claude-archive-rule.md) — 所有产出按5类归档到桌面Claude文件夹(早报/ai代码修理/数字人说明/记录本/分享ai整体内容)
+- [修理摘要双份保存](repair-summary-dual-save.md) — 旧规则，已被桌面Claude归档规则取代
 - [2026-07-08全天工作备份](session-backup-2026-07-08.md)
 - [2026-07-09全天工作备份](session-backup-2026-07-09.md)
 - [7/10交易计划](tomorrow-plan-2026-07-10.md) — 三线ETF(算力AI+科创50+光模块)各800元 高开不追低开低吸
