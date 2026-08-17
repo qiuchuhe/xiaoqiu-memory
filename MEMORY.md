@@ -39,7 +39,7 @@
 - [2026-07-04全天工作备份](session-backup-2026-07-04.md)
 - [2026-07-06全天工作备份](session-backup-2026-07-06.md)
 - [2026-07-07全天工作备份](session-backup-2026-07-07.md)
-- [扫描器盘中K线收盘价Bug](scanner-intraday-bug-kline-close.md) — scanner.py用昨日收盘算买点信号，盘中13只假信号
+- [同花顺K线含今日随时间变](scanner-intraday-bug-kline-close.md) — 盘中kl[-1]=昨日/盘后kl[-1]=今日，取"昨日"必须动态判断不能写死索引
 - [2026-07-08全天工作备份](session-backup-2026-07-08.md)
 - [2026-07-09全天工作备份](session-backup-2026-07-09.md)
 - [7/10交易计划](tomorrow-plan-2026-07-10.md) — 三线ETF(算力AI+科创50+光模块)各800元 高开不追低开低吸
