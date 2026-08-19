@@ -1,67 +1,40 @@
 ---
 name: trading-cron-jobs
-description: 七个交易日时段扫描 v3.0——scanner全市场为主→朋友框架过滤
+description: 交易时段自动扫描——盘中5窗口+盘后21:57+早间8:00，唯一调度器scheduled_scan.py
 metadata: 
   node_type: memory
   type: project
-  originSessionId: 98e619f2-8da7-4865-b783-6a2ba4bed555
+  originSessionId: eaec323c-5b87-4b2a-aa70-1e37e7818350
+  modified: 2026-08-19T17:21:28.113Z
 ---
 
-# 交易时段自动扫描 v3.0
+# 交易时段自动扫描（2026-08-20 精简后）
 
-## 核心逻辑
+2026-08-20 计划任务从 16 个精简到 7 个，盘中 6 窗口收敛到 5 窗口。
 
-```
-scanner全市场技术筛选 → Claude朋友框架(热门+龙头+情报)过滤垃圾/冷门/杂毛 → 精选候选
-```
+## 最终窗口（7 个计划任务）
 
-**先全后精，不跳过任何股票。**
+| 时间 | 时段 | 脚本 | 峰/闲 |
+|------|------|------|-------|
+| 08:00 | 早间报告 | morning_report.py | 闲(半价) |
+| 09:25 | 竞价扫描 | scheduled_scan.py → scanner auction | 峰 |
+| 09:36 | 低开回升 | scheduled_scan.py → bounce | 峰 |
+| 10:03 | 早盘主攻 | scheduled_scan.py → scanner+monitor+breakout+health | 峰 |
+| 10:30 | 洗盘确认 | scheduled_scan.py → washout | 峰 |
+| 14:33 | 尾盘决战 | scheduled_scan.py → scanner+monitor+health | 峰 |
+| 21:57 | 晚间复盘 | scheduled_scan.py → scanner+monitor+nightly_dig | 闲(半价) |
 
-## 七个时段
+## 关键设计
 
-| 时间 | 时段 | 扫描内容 | 说明 |
-|------|------|----------|------|
-| 8:00 | 早间外盘 | WebSearch隔夜美股+要闻 | Claude手动执行 |
-| 9:25 | 竞价异动 | **scanner.py** + track_b | 全市场初筛 + 热门板块参考 |
-| 9:36 | 低开回升 | tech_bounce_scan.py | 跌停翘起+低开回升 |
-| 10:03 | 早盘主攻 | **scanner.py** + monitor.py | 全市场 + 持仓巡检 |
-| 13:07 | 午盘开盘 | **scanner.py** | 全市场午盘扫描 |
-| 14:30 | 尾盘决战 | **scanner.py** + monitor.py | 全市场 + 朋友框架 + 明日计划 |
-| 21:57 | 晚间复盘 | **scanner.py** + monitor.py | 盘后全量 + 全天总结 + 明日预案 |
+- **唯一调度器 = scheduled_scan.py**（每窗口精确跑对应脚本，无补扫逻辑）
+- **洗盘(washout)十点后才成形** → 只放 10:30，不再 9:36/10:03 重复跑
+- **启动确认(breakout)** 放 10:03
+- **尾盘 14:33 最重要**（定明日操作）
+- 已砍：13:07 午盘（信息增量小）、9:36/10:03 的重复 washout
+- 旧 XiaoQiu_* catchup 定时任务已删（catchup_market 只用于开机补扫，不再挂定时）
 
-## v2→v3 变化
+## 报告规范
 
-- 9:25: track_b → **scanner + track_b**（全市场为主，热门为参考）
-- 10:03: track_b → **scanner**（全市场）
-- 13:07: track_b → **scanner**（全市场）
-- 14:33→14:30: 时间修正回整点
-- 🆕 21:57: 新增晚间复盘窗口
+高峰时段（9-12/14-18）扫描总结要**精简省 token**，详见 [[scan-report-protocols]]、[[deepseek-pricing-offpeak]]。
 
-## 每个时段执行流程
-
-1. 到点触发 → Claude处理prompt → 执行扫描命令
-2. scanner全市场初筛 → 技术条件过滤 → 候选池
-3. Claude读取结果 → 过朋友框架(热门题材+龙头排名+情报点名) → 过滤垃圾冷门杂毛
-4. 结论包含：信号汇总 + 板块判断 + 操作建议
-5. 14:30 额外输出【明日交易计划】
-6. 21:57 额外输出【明日早盘预案】
-
-## 实现方式
-
-使用 **Windows 任务计划器**（非 Claude cron），开机即运行，不依赖 Claude Code/VS Code。
-
-```
-注册脚本: D:\AI小秋\策略量化\策略1\setup_tasks.ps1
-输出文件: D:\AI小秋\策略量化\策略1\catchup_result.json / catchup_report.md
-```
-
-Claude 打开时直接读取结果文件，无需等 cron 触发。
-
-## 管理
-
-```powershell
-taskschd.msc                          # 图形化管理
-schtasks /Query /TN "小秋量化_*"       # 查看所有任务
-```
-
-[[morning-routine]] [[friend-market-wisdom]]
+[[morning-routine]] [[scheduled-task-cleanup-2026-08-20]]
