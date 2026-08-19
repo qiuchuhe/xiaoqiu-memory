@@ -1,4 +1,5 @@
 - [计划任务清理 8/20](scheduled-task-cleanup-2026-08-20.md) — 16→8个任务，乱码任务连路径也坏从没跑起来，唯一调度器=scheduled_scan.py
+- [DeepSeek空闲时段半价](deepseek-pricing-offpeak.md) — 高峰9-12/14-18，空闲半价，重活排空闲时段省成本
 - [扫描系统审查报告 8/11](scanner-system-review-2026-08-11.md) — 五脚本问题诊断+修复：股池统一/风险检测/track_B消费链路
 - [科技vs防御轮动规律](sector-rotation-tech-vs-defensive-2026.md) — 6/30起科技跌+防御涨，一升一降鲜明反向
 - [Redeemer量化交易系统](redeemer-project-2026-07-17.md) — 7/17启动，FastAPI+Vue3，已完成后端骨架
