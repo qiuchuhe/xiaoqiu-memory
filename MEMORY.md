@@ -35,7 +35,7 @@
 - [2026-06-30全天工作备份](session-backup-2026-06-30.md)
 - [2026-07-01全天工作备份](session-backup-2026-07-01.md)
 - [交易建议规则](trading-advice-rule.md) — 买卖建议前必须实时扫盘+过朋友框架过滤
-- [交易时段自动扫描](trading-cron-jobs.md) — 四个时段cron：竞价9:25/早盘10:03/午盘13:07/尾盘14:33
+- [交易时段自动扫描](trading-cron-jobs.md) — 盘中5窗口：竞价9:25/低开9:36/早盘10:03/洗盘10:30/尾盘14:33，唯一调度器scheduled_scan.py
 - [2026-07-02全天工作备份](session-backup-2026-07-02.md)
 - [2026-07-03全天工作备份](session-backup-2026-07-03.md)
 - [2026-07-04全天工作备份](session-backup-2026-07-04.md)
