@@ -1,4 +1,5 @@
 - [计划任务清理 8/20](scheduled-task-cleanup-2026-08-20.md) — 16→8个任务，乱码任务连路径也坏从没跑起来，唯一调度器=scheduled_scan.py
+- [任务参数前导零坑](scheduled-task-args-zero-padding.md) — 时间参数必须与WINDOW_CONFIG一致(9:25非09:25)，否则exit1静默失败
 - [模型分流flash/pro](model-routing-flash-pro.md) — 默认flash省钱，新建策略/大重构才切pro(opus档)，改后需重启VSCode
 - [成交额单位坑](data-unit-tencent-vs-ths-amount.md) — 腾讯amount=万元、同花顺K线=元，算比值前对齐否则差1万倍
 - [DeepSeek空闲时段半价](deepseek-pricing-offpeak.md) — 高峰9-12/14-18，空闲半价，重活排空闲时段省成本
