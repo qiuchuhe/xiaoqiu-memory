@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: eaec323c-5b87-4b2a-aa70-1e37e7818350
-  modified: 2026-08-21T15:08:31.564Z
+  modified: 2026-08-21T15:10:11.218Z
 ---
 
 爸爸 2026-08-21 在 OpenWrite 建的第一个小说项目（配 DeepSeek v4-flash 在用）。
@@ -13,8 +13,10 @@ metadata:
 **项目路径**：`C:\Users\ASUS\AI写小说\辞职后，我开了家海边民宿`
 - 正文：`章节内容/第1章.md`（已写第1章《辞职那晚，我买了一张去海边的票》）
 - 资料库：`src/` 下 **5份标准 + 章节摘要**：world.md / characters.md / foreshadowing.md / rule_satisfaction.md / style.md / 章节摘要.md（2026-08-21 统一完成，原"小说资料/"中文3份已删）
-- 项目级 Skill：`.openwrite/skills/expand_sentence.md` 已挂（@expand_sentence 扩写专用）
-- 总控 SKILL.md（novel_long_project_init）**尚未挂载**——爸爸还没拍板；挂载后路径天然适配 src/，`/reload` 生效
+- 项目级 Skill：`.openwrite/skills/` 下 **两个都已挂**（2026-08-21）：
+  - `SKILL.md`（novel_long_project_init 总控，全程自动约束，src/ 路径已对齐）
+  - `expand_sentence.md`（@expand_sentence 扩写专用，主动调用）
+  - 用前在 OpenWrite 里 `/reload` 重载
 
 **剧情设定**（治愈系现实向现言，无金手指）：
 - 主角 林屿，28岁，前大厂设计总监，因前未婚妻苏晚出国分手心灰意冷，辞职到海蓝镇盘下老屋开民宿「屿见」
