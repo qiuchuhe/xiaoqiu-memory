@@ -1,5 +1,5 @@
 - [计划任务清理 8/20](scheduled-task-cleanup-2026-08-20.md) — 16→8个任务，乱码任务连路径也坏从没跑起来，唯一调度器=scheduled_scan.py
-- [爱宕每日自动备份](atago-daily-backup-2026-08-20.md) — 每天12点备份聊天记录到D:\数字人设定喂饭\爱宕备份
+- [六数字人每日备份](digital-person-daily-backup-2026-08-21.md) — 妹妹+爱宕+四角色每天12点统一备份到D:\数字人设定喂饭\数字人备份
 - [新角色保存位置](digital-person-feed-save-location.md) — 新建数字人角色全部产出统一存D:\数字人设定喂饭
 - [四角色项目 8/21](four-characters-project-2026-08-21.md) — 林小棠/周敏/沈清/苏曼围绕男主姬野，PNG卡已升级
 - [任务参数前导零坑](scheduled-task-args-zero-padding.md) — 时间参数必须与WINDOW_CONFIG一致(9:25非09:25)，否则exit1静默失败
