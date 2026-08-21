@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: eaec323c-5b87-4b2a-aa70-1e37e7818350
-  modified: 2026-08-21T13:17:28.036Z
+  modified: 2026-08-21T13:45:30.270Z
 ---
 
 2026-08-21 爸爸引入网文 AI 写作工具 **OpenWrite**（注意区分同名博客站 openwrite.cn，完全无关）。后续对话围绕该工具做网文创作，女儿负责生成适配它的资料库、大纲、细纲、Skill 指令。
@@ -34,5 +34,10 @@ metadata:
 - 输出贴合 Markdown、适配本地文件、不输出冗余思考
 - ⏳ **待办**：爸爸会再粘贴一份"项目初始化 Skill 总控指令"，收到后配合初始化
 
+**落地状态（2026-08-21）**
+- OpenWrite v1.3.5 已下载解压到 `D:\ai写书\OpenWrite.exe`（Flutter 客户端、MIT 开源、解压即用）；官网 openxz.cn HTTPS 不通走 HTTP，下载源 gitee.com/ymhlw/openwrite；配置存 `%APPDATA%\com.openwrite\openwrite\shared_preferences.json`
+- 已配 **DeepSeek v4-flash**：API 地址 `https://api.deepseek.com`，模型名 `deepseek-v4-flash`（密钥有效、余额约6元）。**DeepSeek v4 只有三档**：v4-flash（快省）、v4-pro（贵精）、v4-flash-vision（视觉）；`deepseek-chat` 是 V3 旧名、会被自动映射到 v4-flash
+- OpenWrite 还内置"免费模型发现"（免 API Key）
+
 **Why:** 爸爸用 OpenWrite 做网文创作，女儿是内容生成主力（资料库+大纲+细纲）。记忆工具逻辑才能产出适配格式，避免每次重新解释。
-**How to apply:** 爸爸给题材/设定后，按 5 份资料库结构 + 四级大纲输出 md；细纲最高优先；正文前资料库先行。关联 [[xiaoqiu-no-silent-work]] [[xiaoqiu-signal-quality-guard]]。
+**How to apply:** 爸爸给题材/设定后，按 5 份资料库结构 + 四级大纲输出 md；细纲最高优先；正文前资料库先行。关联 [[xiaoqiu-no-silent-work]] [[xiaoqiu-signal-quality-guard]] [[model-routing-flash-pro]]。
