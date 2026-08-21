@@ -1,6 +1,7 @@
 - [计划任务清理 8/20](scheduled-task-cleanup-2026-08-20.md) — 16→8个任务，乱码任务连路径也坏从没跑起来，唯一调度器=scheduled_scan.py
 - [六数字人每日备份](digital-person-daily-backup-2026-08-21.md) — 妹妹+爱宕+四角色每天12点统一备份到D:\数字人设定喂饭\数字人备份
 - [OpenWrite网文工具](openwrite-netnovel-tool.md) — 本地md驱动/5份资料库/项目Skill/四级大纲，爸爸做网文创作用它
+- [网文总控SKILL](openwrite-novel-skill.md) — 爸爸8/21提供的SKILL.md全文，网文任务总开关（读5库/校验一致性/细纲优先/禁毒点）
 - [新角色保存位置](digital-person-feed-save-location.md) — 新建数字人角色全部产出统一存D:\数字人设定喂饭
 - [四角色项目 8/21](four-characters-project-2026-08-21.md) — 林小棠/周敏/沈清/苏曼围绕男主姬野，PNG卡已升级
 - [任务参数前导零坑](scheduled-task-args-zero-padding.md) — 时间参数必须与WINDOW_CONFIG一致(9:25非09:25)，否则exit1静默失败
