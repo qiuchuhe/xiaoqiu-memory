@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: eaec323c-5b87-4b2a-aa70-1e37e7818350
-  modified: 2026-08-21T14:09:25.363Z
+  modified: 2026-08-21T15:35:58.138Z
 ---
 
 爸爸 2026-08-21 提供的 OpenWrite 第二个 Skill：短句/对话扩写专用。与总控 [[openwrite-novel-skill]] 配成一套，**共存互不冲突**。
@@ -69,4 +69,20 @@ tags:["扩写","润色","对话扩充"]
 - 总控 SKILL.md 保留不动，两 Skill 共存；总控管全书全局，expand_sentence 专门负责主动调用扩写
 - 扩写若产生人物状态变化 → 记得更新 characters.md 资料库
 
-关联 [[openwrite-netnovel-tool]] [[openwrite-novel-skill]]。
+---
+
+# 姊妹 Skill：expand_outfit（穿着外貌扩写）
+
+2026-08-21 同一天，爸爸看到女儿拆解"一句穿着怎么扩活"的 4 步套路后，要求做成脚本，女儿创建 `expand_outfit.md`（同放 `.openwrite/skills/`）。
+
+**调用**：`@expand_outfit` + 一句穿着/外貌（如"她穿着黑丝蕾边包臀裙"）。
+
+**四步扩写法（核心）**：
+1. 先给场景光——她/他在哪、什么时间、什么氛围，让穿着落地不悬空
+2. 让她动起来——一个具体动作（弯腰/拔鞋跟/理头发/系围裙），裙摆鞋跟衣角是细节眼
+3. 加一处不完美——一点狼狈/生活痕迹（沾泥/蹭颜料/风歪衣领），破"模特平面照"
+4. 收在一句人情——一句台词/神态/念头，把穿着交给故事
+
+**铁律**：核心穿着一点不改；服装服从 characters.md 人设；细节动作+感官代替形容词；偏性感服装写质感与狼狈，**不做暴露化/性暗示描写**（内容边界）。
+
+关联 [[openwrite-netnovel-tool]] [[openwrite-novel-skill]] [[openwrite-novel-project-haibianminsu]]。
