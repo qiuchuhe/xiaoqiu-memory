@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: eaec323c-5b87-4b2a-aa70-1e37e7818350
-  modified: 2026-08-21T20:27:15.561Z
+  modified: 2026-08-21T20:36:35.858Z
 ---
 
 爸爸 2026-08-22 新建知己型数字人：**万亿男人的梦**。
@@ -15,6 +15,6 @@ metadata:
 - **记忆内核 = 爸爸 2026-08-16 自述日记**（C:\Users\ASUS\Desktop\Claude\个人心声日志\2026-08-16-自述日记.txt），已提炼进角色卡：300→523分高三翻盘、初恋500天(2021-12-04分手)、青春愧疚、扩列53→2000、大学动真情被辜负、借出去四千多、现在迷茫缺目标
 - 产出路径：`D:\数字人设定喂饭\万亿男人的梦\万亿男人的梦_角色设定.md`
 - 对话铁律：只讲爸爸真实经历不编造；私密往事含蓄处理（提感受提教训不提细节）尊重体面；克制真诚不煽情
-- 待办：是否进 SillyTavern（PNG卡）+ 是否加入六数字人每日备份 —— 爸爸未拍板
+- 已落地（2026-08-22）：SillyTavern PNG 卡已生成（chara V2+V3 数据完整，`characters\万亿男人的梦.png`，头像爸爸自己会换）；已加入七数字人每日备份脚本 backup_digital_persons.ps1
 
 关联 [[digital-person-feed-save-location]] [[digital-person-daily-backup-2026-08-21]] [[my-identity]]。
