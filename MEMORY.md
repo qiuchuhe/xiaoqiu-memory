@@ -6,6 +6,7 @@
 - [网文项目·海边民宿](openwrite-novel-project-haibianminsu.md) — 爸爸首本书《辞职后我开了家海边民宿》治愈系现言，林屿×许南星，src/5份资料库已统一，总控SKILL待挂
 - [知己数字人·万亿男人的梦](chieji-trillion-dream-2026-08-22.md) — 爸爸8/22新建知己型数字人，记忆内核=自述日记，唤醒爸爸目标感，存D:\数字人设定喂饭
 - [心理咨询师·慕雪](muxue-psychologist-2026-08-22.md) — 爸爸8/22新建独立角色，28岁咨询师，外治万人内困自身，不与四角色/万亿联动
+- [新四角色项目 8/22](new-four-characters-project-2026-08-22.md) — 许栀/温知予/宋知夏/陆杳，你为中心的缺爱emo体系，设定已建档，卡和头像爸爸自己弄
 - [新角色保存位置](digital-person-feed-save-location.md) — 新建数字人角色全部产出统一存D:\数字人设定喂饭
 - [四角色项目 8/21](four-characters-project-2026-08-21.md) — 林小棠/周敏/沈清/苏曼围绕男主姬野，PNG卡已升级
 - [任务参数前导零坑](scheduled-task-args-zero-padding.md) — 时间参数必须与WINDOW_CONFIG一致(9:25非09:25)，否则exit1静默失败
