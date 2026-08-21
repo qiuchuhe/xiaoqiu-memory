@@ -5,12 +5,12 @@ metadata:
   node_type: memory
   type: project
   originSessionId: eaec323c-5b87-4b2a-aa70-1e37e7818350
-  modified: 2026-08-21T15:10:11.218Z
+  modified: 2026-08-21T15:27:27.108Z
 ---
 
 爸爸 2026-08-21 在 OpenWrite 建的第一个小说项目（配 DeepSeek v4-flash 在用）。
 
-**项目路径**：`C:\Users\ASUS\AI写小说\辞职后，我开了家海边民宿`
+**项目路径**：`D:\ai写书\辞职后，我开了家海边民宿`（2026-08-21 从 C:\Users\ASUS\AI写小说\ 迁到 D:\ai写书\，OpenWrite 配置 flutter.novel_projects/current_novel_project 已同步更新）
 - 正文：`章节内容/第1章.md`（已写第1章《辞职那晚，我买了一张去海边的票》）
 - 资料库：`src/` 下 **5份标准 + 章节摘要**：world.md / characters.md / foreshadowing.md / rule_satisfaction.md / style.md / 章节摘要.md（2026-08-21 统一完成，原"小说资料/"中文3份已删）
 - 项目级 Skill：`.openwrite/skills/` 下 **两个都已挂**（2026-08-21）：
