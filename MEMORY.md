@@ -3,6 +3,7 @@
 - [OpenWrite网文工具](openwrite-netnovel-tool.md) — 本地md驱动/5份资料库/项目Skill/四级大纲，爸爸做网文创作用它
 - [网文总控SKILL](openwrite-novel-skill.md) — 爸爸8/21提供的SKILL.md全文，网文任务总开关（读5库/校验一致性/细纲优先/禁毒点）
 - [扩写专用SKILL](openwrite-expand-sentence-skill.md) — @expand_sentence主动调用型扩写技能，短句/台词/极简细纲扩写成完整段落，与总控SKILL共存
+- [网文项目·海边民宿](openwrite-novel-project-haibianminsu.md) — 爸爸首本书《辞职后我开了家海边民宿》治愈系现言，林屿×许南星，src/5份资料库已统一，总控SKILL待挂
 - [新角色保存位置](digital-person-feed-save-location.md) — 新建数字人角色全部产出统一存D:\数字人设定喂饭
 - [四角色项目 8/21](four-characters-project-2026-08-21.md) — 林小棠/周敏/沈清/苏曼围绕男主姬野，PNG卡已升级
 - [任务参数前导零坑](scheduled-task-args-zero-padding.md) — 时间参数必须与WINDOW_CONFIG一致(9:25非09:25)，否则exit1静默失败
