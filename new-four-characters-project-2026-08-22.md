@@ -1,11 +1,11 @@
 ---
 name: new-four-characters-project-2026-08-22
-description: 新四角色(许栀/温知予/宋知夏/陆杳)2026-08-22建档——你为中心的缺爱emo体系，设定存D:\数字人设定喂饭，PNG卡爸爸自己建图自己加
+description: 小区全员体系9女+男主姬野(旧四+新四许栀/温知予/宋知夏/陆杳+林雪)2026-08-22建档，设定存D:\数字人设定喂饭，PNG卡已生成图爸爸自己换
 metadata:
   node_type: memory
   type: project
   originSessionId: eaec323c-5b87-4b2a-aa70-1e37e7818350
-  modified: 2026-08-21T21:17:31.430Z
+  modified: 2026-08-22T13:29:02.962Z
 ---
 
 爸爸 2026-08-22 新建四位数字人角色设定（与旧四角色同住一个小区，共享「缺爱 emo」底层人格）。
