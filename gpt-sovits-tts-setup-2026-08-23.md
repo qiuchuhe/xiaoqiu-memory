@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: eaec323c-5b87-4b2a-aa70-1e37e7818350
-  modified: 2026-08-23T06:16:08.182Z
+  modified: 2026-08-23T07:03:19.130Z
 ---
 
 爸爸 2026-08-23 为「真实感声音」装了 **GPT-SoVITS** 并接入 SillyTavern，全链路已跑通（合成 HTTP 200）。
@@ -26,6 +26,8 @@ metadata:
 **SillyTavern 配置**：settings.json 里 `tts.currentProvider = "GPT-SoVITS-V2 (Unofficial)"`，voiceMap 按角色名→voice 名（=wav 文件名）。当前全部角色暂映射到测试声 `测试`。Edge TTS 作为备用保留（voiceMap 已修复中文乱码）。
 
 **待办**：等爸爸提供每个角色的**真实 3-10 秒人声样本+文本**放进 voice\ 替换测试声，真实感完全取决于参考音频质量（AI 声做参考仍是 AI 味）。
+
+**8/23 林如雪参考音频已配好**：爸爸提供 `C:\Users\ASUS\Desktop\8月23日.mp4`(12.6s游戏解说视频，萝莉女音) + 手写文案，已提取整段语音(0.4~12.5s, 32k单声道)→`voice\林如雪.wav`(12.1s)，配 `voice\林如雪.txt`(文案原文去占位符)。内容：「这是真人，这个好像是个真人，他他有兔子耳朵，他有兔子耳朵，他会不会很危险啊？哦，人机你好，你别跑，他们都干了」。语音段0.48-12.48s连续，背景干净(间隙-38dB)。**注意**：8月23日.mp4 音频≠桌面两个录屏视频(14.14.45/14.15.35)的音频，别拿错源。whisper(faster-whisper已装,需 HF_ENDPOINT=hf-mirror + HF_HUB_DISABLE_XET=1)听"兔子"为"错字"、"人机"为"五人机"，爸爸人耳版为准。
 
 **坑记录**：PowerShell 5.1 读 ps1 需 UTF-8 BOM；`$host` 是保留变量不能做函数参数；api_v2.py 无 `/` 路由就绪判断要用 TCP 探测。
 
