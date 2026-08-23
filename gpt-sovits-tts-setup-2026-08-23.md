@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: eaec323c-5b87-4b2a-aa70-1e37e7818350
-  modified: 2026-08-23T05:51:58.824Z
+  modified: 2026-08-23T06:16:08.182Z
 ---
 
 爸爸 2026-08-23 为「真实感声音」装了 **GPT-SoVITS** 并接入 SillyTavern，全链路已跑通（合成 HTTP 200）。
@@ -17,6 +17,11 @@ metadata:
 - 适配器：`D:\虚拟人总项目\DAIGPT‑SoVITS\GPT-SoVITS_sillytavern_adapter`
 - **一键启动**：`D:\虚拟人总项目\DAIGPT‑SoVITS\启动GPT-SoVITS.bat`（内部调 start-gpt-sovits.ps1，TCP 端口探测就绪判断）
 - 参考音频：适配器 `voice\` 目录，`角色名.wav` + 同名 `角色名.txt`(参考文本)
+- **视频提取工具**：`DAIGPT‑SoVITS\video2ref.py`（ffmpeg 提取32kHz单声道→voice，同名.srt字幕自动配文本，--list列时间轴）
+
+**SillyTavern 配置**：settings.json 里 `tts.currentProvider = "GPT-SoVITS-V2 (Unofficial)"`，voiceMap 按角色名→voice 名（=wav 文件名）。当前全部角色暂映射到测试声 `测试`。Edge TTS 作为备用保留（voiceMap 已修复中文乱码）。
+
+**8/23 卡死事故诊断**：SillyTavern 连续/长句触发合成时，某次在「合成音频」解码阶段卡死，堵住共享模型，此后所有请求秒回 200 空字节（GPU 利用率 20% 不动）。**解法：重启 API 即恢复**（重启后爸爸的两句长句 20 秒正常出 1.38MB）。已建 **`重启GPT-SoVITS.bat`**（杀旧进程+重新拉起）救急。根因疑为 6GB 显存紧张+串行推理被并发请求打乱。
 
 **SillyTavern 配置**：settings.json 里 `tts.currentProvider = "GPT-SoVITS-V2 (Unofficial)"`，voiceMap 按角色名→voice 名（=wav 文件名）。当前全部角色暂映射到测试声 `测试`。Edge TTS 作为备用保留（voiceMap 已修复中文乱码）。
 
