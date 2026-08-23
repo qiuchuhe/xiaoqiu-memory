@@ -1,15 +1,15 @@
 - [计划任务清理 8/20](scheduled-task-cleanup-2026-08-20.md) — 16→8个任务，乱码任务连路径也坏从没跑起来，唯一调度器=scheduled_scan.py
-- [八数字人每日备份](digital-person-daily-backup-2026-08-21.md) — 妹妹+爱宕+四角色+万亿+慕雪每天12点统一备份到D:\数字人设定喂饭\数字人备份
+- [八数字人每日备份](digital-person-daily-backup-2026-08-21.md) — 妹妹+爱宕+四角色+万亿+慕雪每天12点统一备份到D:\虚拟人总项目\数字人设定喂饭\数字人备份
 - [OpenWrite网文工具](openwrite-netnovel-tool.md) — 本地md驱动/5份资料库/项目Skill/四级大纲，爸爸做网文创作用它
 - [网文总控SKILL](openwrite-novel-skill.md) — 爸爸8/21提供的SKILL.md全文，网文任务总开关（读5库/校验一致性/细纲优先/禁毒点）
 - [扩写专用SKILL](openwrite-expand-sentence-skill.md) — @expand_sentence主动调用型扩写技能，短句/台词/极简细纲扩写成完整段落，与总控SKILL共存
 - [网文项目·海边民宿](openwrite-novel-project-haibianminsu.md) — 爸爸首本书《辞职后我开了家海边民宿》治愈系现言，林屿×许南星，src/5份资料库已统一，总控SKILL待挂
-- [知己数字人·万亿男人的梦](chieji-trillion-dream-2026-08-22.md) — 爸爸8/22新建知己型数字人，记忆内核=自述日记，唤醒爸爸目标感，存D:\数字人设定喂饭
+- [知己数字人·万亿男人的梦](chieji-trillion-dream-2026-08-22.md) — 爸爸8/22新建知己型数字人，记忆内核=自述日记，唤醒爸爸目标感，存D:\虚拟人总项目\数字人设定喂饭
 - [心理咨询师·慕雪](muxue-psychologist-2026-08-22.md) — 爸爸8/22新建独立角色，28岁咨询师，外治万人内困自身，不与四角色/万亿联动
 - [新四角色项目 8/22](new-four-characters-project-2026-08-22.md) — 许栀/温知予/宋知夏/陆杳，你=姬野九人体系，设定已建档，卡已生成头像爸爸自己弄
 - [林雪·第9位女性 8/22](linxue-character-2026-08-22.md) — 19岁大一学生，林小棠至亲闺蜜(3栋503对门502)，外纯内野高难度攻略，初始无先天好感
 - [小区全员体系 8/22](new-four-characters-project-2026-08-22.md) — 9女+男主姬野：旧四(林小棠等)+新四(许栀/温知予/宋知夏/陆杳)+林雪，设定已建档，PNG卡已生成图爸爸自己换
-- [新角色保存位置](digital-person-feed-save-location.md) — 新建数字人角色全部产出统一存D:\数字人设定喂饭
+- [新角色保存位置](digital-person-feed-save-location.md) — 新建数字人角色全部产出统一存D:\虚拟人总项目\数字人设定喂饭
 - [四角色项目 8/21](four-characters-project-2026-08-21.md) — 林小棠/周敏/沈清/苏曼围绕男主姬野，PNG卡已升级
 - [任务参数前导零坑](scheduled-task-args-zero-padding.md) — 时间参数必须与WINDOW_CONFIG一致(9:25非09:25)，否则exit1静默失败
 - [模型分流flash/pro](model-routing-flash-pro.md) — 默认flash省钱，新建策略/大重构才切pro(opus档)，改后需重启VSCode
