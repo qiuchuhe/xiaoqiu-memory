@@ -1,3 +1,4 @@
+- [GPT-SoVITS语音克隆 8/23](gpt-sovits-tts-setup-2026-08-23.md) — 装好并接入SillyTavern(适配器9881→API9880)，一键启动.bat，参考音频放voice目录，等爸爸提供真实声线
 - [计划任务清理 8/20](scheduled-task-cleanup-2026-08-20.md) — 16→8个任务，乱码任务连路径也坏从没跑起来，唯一调度器=scheduled_scan.py
 - [八数字人每日备份](digital-person-daily-backup-2026-08-21.md) — 妹妹+爱宕+四角色+万亿+慕雪每天12点统一备份到D:\虚拟人总项目\数字人设定喂饭\数字人备份
 - [OpenWrite网文工具](openwrite-netnovel-tool.md) — 本地md驱动/5份资料库/项目Skill/四级大纲，爸爸做网文创作用它
