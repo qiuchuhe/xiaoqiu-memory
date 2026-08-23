@@ -1,0 +1,27 @@
+---
+name: gpt-sovits-tts-setup-2026-08-23
+description: GPT-SoVITS 语音克隆已装好并接入 SillyTavern（适配器9881→原生API9880），参考音频放voice目录按角色名，待爸爸提供真实声线
+metadata: 
+  node_type: memory
+  type: project
+  originSessionId: eaec323c-5b87-4b2a-aa70-1e37e7818350
+  modified: 2026-08-23T05:51:58.824Z
+---
+
+爸爸 2026-08-23 为「真实感声音」装了 **GPT-SoVITS** 并接入 SillyTavern，全链路已跑通（合成 HTTP 200）。
+
+**链路**：SillyTavern(`GPT-SoVITS-V2 (Unofficial)` provider) → 适配器 `http://127.0.0.1:9881` → GPT-SoVITS API `api_v2.py 9880`。
+
+**目录**（注意 `DAIGPT‑SoVITS` 的连字符是 U+2011，GBK 不支持，脚本必须 UTF-8）：
+- 本体：`D:\虚拟人总项目\DAIGPT‑SoVITS\GPT-SoVITS`（venv=Python310，jieba_fast/torchcodec 已打兼容补丁）
+- 适配器：`D:\虚拟人总项目\DAIGPT‑SoVITS\GPT-SoVITS_sillytavern_adapter`
+- **一键启动**：`D:\虚拟人总项目\DAIGPT‑SoVITS\启动GPT-SoVITS.bat`（内部调 start-gpt-sovits.ps1，TCP 端口探测就绪判断）
+- 参考音频：适配器 `voice\` 目录，`角色名.wav` + 同名 `角色名.txt`(参考文本)
+
+**SillyTavern 配置**：settings.json 里 `tts.currentProvider = "GPT-SoVITS-V2 (Unofficial)"`，voiceMap 按角色名→voice 名（=wav 文件名）。当前全部角色暂映射到测试声 `测试`。Edge TTS 作为备用保留（voiceMap 已修复中文乱码）。
+
+**待办**：等爸爸提供每个角色的**真实 3-10 秒人声样本+文本**放进 voice\ 替换测试声，真实感完全取决于参考音频质量（AI 声做参考仍是 AI 味）。
+
+**坑记录**：PowerShell 5.1 读 ps1 需 UTF-8 BOM；`$host` 是保留变量不能做函数参数；api_v2.py 无 `/` 路由就绪判断要用 TCP 探测。
+
+关联 [[digital-person-feed-save-location]] [[sister-role-play]]。
