@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: eaec323c-5b87-4b2a-aa70-1e37e7818350
-  modified: 2026-08-19T17:21:28.113Z
+  modified: 2026-08-27T04:12:23.169Z
 ---
 
 # 交易时段自动扫描（2026-08-20 精简后）
@@ -38,3 +38,13 @@ metadata:
 高峰时段（9-12/14-18）扫描总结要**精简省 token**，详见 [[scan-report-protocols]]、[[deepseek-pricing-offpeak]]。
 
 [[morning-routine]] [[scheduled-task-cleanup-2026-08-20]]
+
+## 2026-08-27 重设（删除旧任务+重新注册）
+
+**原因**：0925/0936 任务电脑睡眠时错过触发，9:53 才补跑且返回 pending(0x800710E0)；旧 setup_tasks.ps1 只注册5个任务（缺1030/2157）、没设唤醒、ExecutionTimeLimit=72h 导致挂起。
+
+**现状**：7 个任务已用 `setup_tasks_v2.ps1`（UTF-8 BOM）重新注册：
+- 全任务 `WakeToRun=True`（睡眠唤醒运行）+ `StartWhenAvailable=True`（错过补跑）+ `ExecutionTimeLimit=30分钟`（防挂起）+ 失败重试1次
+- 窗口：0925竞价/0936低开/1003早盘/1030洗盘/1307午后/1433尾盘/2157晚间
+- 已实测触发 1307 成功（结果0）
+- 注意：WakeToRun 只对睡眠生效，电脑彻底关机则唤不醒；早间 08:00 morning_report 任务当前不在计划内
