@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: eaec323c-5b87-4b2a-aa70-1e37e7818350
-  modified: 2026-08-27T04:12:23.169Z
+  modified: 2026-08-27T14:19:46.553Z
 ---
 
 # 交易时段自动扫描（2026-08-20 精简后）
@@ -48,3 +48,16 @@ metadata:
 - 窗口：0925竞价/0936低开/1003早盘/1030洗盘/1307午后/1433尾盘/2157晚间
 - 已实测触发 1307 成功（结果0）
 - 注意：WakeToRun 只对睡眠生效，电脑彻底关机则唤不醒；早间 08:00 morning_report 任务当前不在计划内
+
+## 2026-08-27 修复（黑窗根源 + 自动汇报）
+
+**黑窗根源**：scheduled_scan.py 用 pythonw 启动后，内部 subprocess 调 python.exe 跑 scanner/monitor 等 → 每个子进程弹"无内容黑窗"（capture_output 把输出收走了）；量化后端 main.py 也用 python.exe 弹窗。
+
+**修复**：
+- scheduled_scan.py `run_script` 加 `creationflags=0x08000000`（CREATE_NO_WINDOW）→ 子进程静默不弹窗
+- 后端改 `start_backend_silent.py`（stdout/stderr 重定向 server.log）+ pythonw.exe 启动 → 无黑窗，端口 8766
+- scheduled_scan.py 升级：结果加时间戳历史归档（`scheduled_scan_history/`，防手动/补跑污染 latest）+ 生成 markdown 报告（`扫描报告/扫描报告_YYYYMMDD_HHMM_窗口.md`，含 scanner候选表/monitor/health/nightly_dig引用）
+- 真实 14:33 已实测：3 scripts ok、报告+归档落盘、无残留进程
+
+**cron 自动汇报**：7 个 durable cron（写入 .claude/scheduled_tasks.json，VSCode 重启不丢；旧的 session-only 重启即失），每窗口后约 10 分钟触发（9:34/9:45/10:13/10:40/13:17/14:43/22:08），prompt 校验 generated_at 新鲜度（今天+≤25分钟）+ window 防读到被覆盖旧数据。
+⚠️ durable recurring **7 天自动过期**需重建；触发仍依赖对话空闲，忙时排队延迟；兜底=读 `扫描报告/` 最新 md。
