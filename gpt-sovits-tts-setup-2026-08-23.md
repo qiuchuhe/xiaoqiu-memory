@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: eaec323c-5b87-4b2a-aa70-1e37e7818350
-  modified: 2026-08-28T17:07:52.778Z
+  modified: 2026-08-28T17:08:01.544Z
 ---
 
 爸爸为「真实感声音」用 GPT-SoVITS 接入 SillyTavern。**8/23 首装后爸爸放弃删除**（参考音频带背景音→合成沙哑，高频占比>0.2 易沙哑，理想<0.1），**8/28 爸爸主动要求重建**（换社区声线包方案=真人训练音色），**8/29 星瞳声线接入成功**。
@@ -32,7 +32,7 @@ metadata:
 - requirements 文件必须纯 ASCII（中文注释→GBK UnicodeDecodeError）；stdout 禁用 ✓/✗（GBK 崩溃），用 OK/FAIL
 - split_lang detector.py 硬编码 `model="full"` → 改 `model="lite"`（省 130MB 下载）；langsegmenter.py 加 cache_dir 指向本地 pretrained_models/fast_langdetect
 
-**待办**：等爸爸从网盘下载**星瞳 XingTong**（甜妹女声，真人训练）声线包 → 替换 transition 音色。当前许知糯参考音频是 Edge 晓晓合成音（有 AI 味），真人声线包到位才算达成「甜甜可爱妹妹」。
+**星瞳声线包**（8/29 接入成功）：`D:\虚拟人总项目\GPT-SoVITS\voicepacks\XingTong`（gpt.ckpt 155MB + sovits.pth 85MB + ref.wav），来源 hf-mirror.com `shibing624/parrots-gpt-sovits-speaker`。许知糯 models.json 指向 XingTong，参考音频=voice/许知糯.wav（作者自带 ref.wav 干净真人音）+ 许知糯.txt（"等你，我想想，嗯。"）。**⚠️ 下载坑**：curl `-C -` 续传会致 zip 损坏（字节对但 EOCD 丢）→ 必须完整下载+zip校验（dl_sovits2.sh 完整重下才成功）；坏 sovits.pth 会让 api_v2 启动崩→adapter 反复 400→SillyTavern 报 "TypeError: Failed to fetch"，恢复=换完好权重+杀进程重启（start_tts.py）。
 
 **8/23 教训**：参考音频质量决定听感；高频占比>0.2 的源易致合成沙哑，优先爸爸确认干净的源（理想<0.1）。AI 合成音做参考仍是 AI 味。
 
