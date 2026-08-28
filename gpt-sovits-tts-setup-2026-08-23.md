@@ -1,34 +1,39 @@
 ---
 name: gpt-sovits-tts-setup-2026-08-23
-description: GPT-SoVITS 语音克隆已装好并接入 SillyTavern（适配器9881→原生API9880），参考音频放voice目录按角色名，待爸爸提供真实声线
+description: GPT-SoVITS 语音克隆项目（8/23 首装放弃→8/28 按爸爸要求重建到新目录，许知糯已接入鸣潮声线），provider 必须用 GPT-SoVITS-V2 (Unofficial)，参考音频放 voice 目录按角色名，等爸爸网盘下载星瞳声线包
 metadata: 
   node_type: memory
   type: project
   originSessionId: eaec323c-5b87-4b2a-aa70-1e37e7818350
-  modified: 2026-08-23T07:46:50.903Z
+  modified: 2026-08-28T15:54:05.803Z
 ---
 
-爸爸 2026-08-23 为「真实感声音」装了 **GPT-SoVITS** 并接入 SillyTavern，全链路已跑通（合成 HTTP 200）。
+爸爸为「真实感声音」用 GPT-SoVITS 接入 SillyTavern。**8/23 首装后爸爸放弃删除**（参考音频带背景音→合成沙哑，高频占比>0.2 易沙哑，理想<0.1），**8/28 爸爸主动要求重建**（换社区声线包方案=真人训练音色）。
 
 **链路**：SillyTavern(`GPT-SoVITS-V2 (Unofficial)` provider) → 适配器 `http://127.0.0.1:9881` → GPT-SoVITS API `api_v2.py 9880`。
 
-**目录**（注意 `DAIGPT‑SoVITS` 的连字符是 U+2011，GBK 不支持，脚本必须 UTF-8）：
-- 本体：`D:\虚拟人总项目\DAIGPT‑SoVITS\GPT-SoVITS`（venv=Python310，jieba_fast/torchcodec 已打兼容补丁）
-- 适配器：`D:\虚拟人总项目\DAIGPT‑SoVITS\GPT-SoVITS_sillytavern_adapter`
-- **一键启动**：`D:\虚拟人总项目\DAIGPT‑SoVITS\启动GPT-SoVITS.bat`（内部调 start-gpt-sovits.ps1，TCP 端口探测就绪判断）
-- 参考音频：适配器 `voice\` 目录，`角色名.wav` + 同名 `角色名.txt`(参考文本)
-- **视频提取工具**：`DAIGPT‑SoVITS\video2ref.py`（ffmpeg 提取32kHz单声道→voice，同名.srt字幕自动配文本，--list列时间轴）
+**⚠️ provider 兼容性坑（最重要）**：SillyTavern 里有两个 GPT-SoVITS provider——
+- `GPT-SoVITS-V2 (Unofficial)`：发 `ref_audio_path` → **与 guoql666 adapter 完全兼容**（adapter 按 ref_audio_path 的 basename 去 `voice\{角色名}.wav` 找参考音频），**必须用它**
+- `GPT-SoVITS-Adapter`：发 `target_voice`+`card_name` → 本 adapter 版本 pydantic 不认，**422 失败**，别用
 
-**SillyTavern 配置**：settings.json 里 `tts.currentProvider = "GPT-SoVITS-V2 (Unofficial)"`，voiceMap 按角色名→voice 名（=wav 文件名）。当前全部角色暂映射到测试声 `测试`。Edge TTS 作为备用保留（voiceMap 已修复中文乱码）。
+**目录**（8/28 重建，新目录普通连字符 `-`）：
+- 本体：`D:\虚拟人总项目\GPT-SoVITS\GPT-SoVITS`（venv=Python310）
+- 适配器：`D:\虚拟人总项目\GPT-SoVITS\adapter`（voice\ 放参考音频 + models.json 角色→权重）
+- 声线包：`D:\虚拟人总项目\GPT-SoVITS\voicepacks\WutheringWaves_CN`（鸣潮，GPT+SV ckpt/pth）
+- **一键启动**：`D:\虚拟人总项目\GPT-SoVITS\start_tts.py`（pythonw 无黑窗，先杀旧进程再拉起，端口探测就绪，日志 start_tts.log；api_v2 9880 + adapter 9881）
+- 参考音频：adapter `voice\` 目录，`角色名.wav` + 同名 `角色名.txt`(参考文本) + models.json 配 `prompt_lang`
 
-**8/23 卡死事故诊断**：SillyTavern 连续/长句触发合成时，某次在「合成音频」解码阶段卡死，堵住共享模型，此后所有请求秒回 200 空字节（GPU 利用率 20% 不动）。**解法：重启 API 即恢复**（重启后爸爸的两句长句 20 秒正常出 1.38MB）。已建 **`重启GPT-SoVITS.bat`**（杀旧进程+重新拉起）救急。根因疑为 6GB 显存紧张+串行推理被并发请求打乱。
+**SillyTavern 配置**：settings.json 里 `tts.currentProvider = "GPT-SoVITS-V2 (Unofficial)"`，`GPT-SoVITS-V2 (Unofficial)` 块 `provider_endpoint=http://127.0.0.1:9881`，voiceMap 按角色名→voice 名（=wav 文件名）。当前许知糯→许知糯声（过渡），其余角色暂映射到测试声 `测试`（鸣潮权重）。**改 settings.json 后 F5 刷新页面即生效，不用重启**（server 端 `/settings/get` 每次读盘，非启动缓存）。改前先备份（现有 settings.json.bak_gptsovits）。Edge TTS 备用保留（provider 可随时切回）。
 
-**SillyTavern 配置**：settings.json 里 `tts.currentProvider = "GPT-SoVITS-V2 (Unofficial)"`，voiceMap 按角色名→voice 名（=wav 文件名）。当前全部角色暂映射到测试声 `测试`。Edge TTS 作为备用保留（voiceMap 已修复中文乱码）。
+**依赖/绕坑经验**（全 D 盘，D 盘余 89G 充足）：
+- transformers 必须 ≤4.51.3（4.57.6 强制 torch>=2.6 CVE-2025-32434）；tokenizers 0.22.2；huggingface-hub 0.36.2
+- torch 2.4.1+cu124 装完后所有 pip 必须 `--no-deps`（否则 resolver 误拉 CPU 版 torch 2.13.0）
+- jieba_fast 需 MSVC 编译 → 建别名模块 jieba_fast.py 指向纯 Python jieba；fasttext → 装 `fasttext-wheel`；pyopenjtalk 跳过（日文才需要）
+- requirements 文件必须纯 ASCII（中文注释→GBK UnicodeDecodeError）；stdout 禁用 ✓/✗（GBK 崩溃），用 OK/FAIL
+- split_lang detector.py 硬编码 `model="full"` → 改 `model="lite"`（省 130MB 下载）；langsegmenter.py 加 cache_dir 指向本地 pretrained_models/fast_langdetect
 
-**待办**：等爸爸提供每个角色的**真实 3-10 秒人声样本+文本**放进 voice\ 替换测试声，真实感完全取决于参考音频质量（AI 声做参考仍是 AI 味）。
+**待办**：等爸爸从网盘下载**星瞳 XingTong**（甜妹女声，真人训练）声线包 → 替换 transition 音色。当前许知糯参考音频是 Edge 晓晓合成音（有 AI 味），真人声线包到位才算达成「甜甜可爱妹妹」。
 
-**8/23 GPT-SoVITS 已全部删除**：试了两条路都不满意——① 8月23日.mp4 切段做参考→合成沙哑(该视频带游戏背景音,高频占比0.275被学进音色)；② 换成爸爸确认干净的 lrx2 源(高频0.078)依然不满意。**爸爸最终决定放弃 GPT-SoVITS，语音回归原先设好的 Edge TTS**（currentProvider 已切回 Edge，林如雪=晓双 zh-CN-XiaoshuangNeural）。已删：整个 D:\虚拟人总项目\DAIGPT‑SoVITS\(16.4GB含模型权重)、桌面+D盘 SillyTavern-1.18.0.zip。虚拟人总项目下现在只剩 SillyTavern-1.18.0/人物模型/数字人角色/数字人设定喂饭。**教训**：做 TTS 参考音频优先用爸爸确认干净的源；参考源高频占比>0.2 易致合成沙哑,理想<0.1。
+**8/23 教训**：参考音频质量决定听感；高频占比>0.2 的源易致合成沙哑，优先爸爸确认干净的源（理想<0.1）。AI 合成音做参考仍是 AI 味。
 
-**坑记录**：PowerShell 5.1 读 ps1 需 UTF-8 BOM；`$host` 是保留变量不能做函数参数；api_v2.py 无 `/` 路由就绪判断要用 TCP 探测。
-
-关联 [[digital-person-feed-save-location]] [[sister-role-play]]。
+关联 [[edge-tts-plugin-voice-2026-08-28]] [[sister-role-play]] [[digital-person-feed-save-location]]。
