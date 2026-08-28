@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: eaec323c-5b87-4b2a-aa70-1e37e7818350
-  modified: 2026-08-28T17:08:01.544Z
+  modified: 2026-08-28T17:08:10.388Z
 ---
 
 爸爸为「真实感声音」用 GPT-SoVITS 接入 SillyTavern。**8/23 首装后爸爸放弃删除**（参考音频带背景音→合成沙哑，高频占比>0.2 易沙哑，理想<0.1），**8/28 爸爸主动要求重建**（换社区声线包方案=真人训练音色），**8/29 星瞳声线接入成功**。
@@ -23,7 +23,7 @@ metadata:
 - **一键启动**：`D:\虚拟人总项目\GPT-SoVITS\start_tts.py`（pythonw 无黑窗，先杀旧进程再拉起，端口探测就绪，日志 start_tts.log；api_v2 9880 + adapter 9881）
 - 参考音频：adapter `voice\` 目录，`角色名.wav` + 同名 `角色名.txt`(参考文本) + models.json 配 `prompt_lang`
 
-**SillyTavern 配置**：settings.json 里 `tts.currentProvider = "GPT-SoVITS-V2 (Unofficial)"`，`GPT-SoVITS-V2 (Unofficial)` 块 `provider_endpoint=http://127.0.0.1:9881`，voiceMap 按角色名→voice 名（=wav 文件名）。当前许知糯→许知糯声（过渡），其余角色暂映射到测试声 `测试`（鸣潮权重）。**改 settings.json 后 F5 刷新页面即生效，不用重启**（server 端 `/settings/get` 每次读盘，非启动缓存）。改前先备份（现有 settings.json.bak_gptsovits）。Edge TTS 备用保留（provider 可随时切回）。
+**SillyTavern 配置**：settings.json 里 `tts.currentProvider = "GPT-SoVITS-V2 (Unofficial)"`，`GPT-SoVITS-V2 (Unofficial)` 块 `provider_endpoint=http://127.0.0.1:9881`，voiceMap 按角色名→voice 名（=wav 文件名）。当前许知糯→许知糯声（星瞳），其余角色→测试声 `测试`（鸣潮权重）。**改 settings.json 后 F5 刷新页面即生效，不用重启**（server 端 `/settings/get` 每次读盘，非启动缓存）。改前先备份。Edge TTS 备用保留（provider 可随时切回）。**⚠️ 8/29 坑**：GPT-SoVITS 块内 voiceMap 曾被清空成 `{}`（顶层 voiceMap 是 Edge 遗留 zh-CN-XiaoxiaoNeural 会串音）→ 用 `settings.json.bak_gptsovits` 恢复 61 键 + 许知糯 4 键覆盖 → F5 生效。
 
 **依赖/绕坑经验**（全 D 盘，D 盘余 89G 充足）：
 - transformers 必须 ≤4.51.3（4.57.6 强制 torch>=2.6 CVE-2025-32434）；tokenizers 0.22.2；huggingface-hub 0.36.2
