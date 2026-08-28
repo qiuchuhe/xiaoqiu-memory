@@ -1,11 +1,11 @@
 ---
 name: gpt-sovits-tts-setup-2026-08-23
-description: GPT-SoVITS 语音克隆项目（8/23 首装放弃→8/28 按爸爸要求重建到新目录，许知糯已接入鸣潮声线），provider 必须用 GPT-SoVITS-V2 (Unofficial)，参考音频放 voice 目录按角色名，等爸爸网盘下载星瞳声线包
+description: GPT-SoVITS 语音克隆项目（8/23 首装放弃→8/28 重建→8/29 星瞳声线接入成功，许知糯=星瞳甜妹音），provider 必须用 GPT-SoVITS-V2 (Unofficial)，参考音频放 voice 目录按角色名
 metadata: 
   node_type: memory
   type: project
   originSessionId: eaec323c-5b87-4b2a-aa70-1e37e7818350
-  modified: 2026-08-28T15:54:05.803Z
+  modified: 2026-08-28T17:07:45.331Z
 ---
 
 爸爸为「真实感声音」用 GPT-SoVITS 接入 SillyTavern。**8/23 首装后爸爸放弃删除**（参考音频带背景音→合成沙哑，高频占比>0.2 易沙哑，理想<0.1），**8/28 爸爸主动要求重建**（换社区声线包方案=真人训练音色）。
