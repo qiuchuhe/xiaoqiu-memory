@@ -2,7 +2,7 @@
 - [下载全走D盘规则 8/28](all-downloads-to-d-drive.md) — 爸爸明确不要占C盘，pip缓存永久设D:\pip_cache，pip.ini用无中文路径避免乱码
 - [Edge TTS插件声线 8/28](edge-tts-plugin-voice-2026-08-28.md) — provider=plugin免Extras跑通；中文女声实测只有晓晓/晓伊(无晓梦无萝莉)；CSRF+网页覆盖两坑
 - [计划任务清理 8/20](scheduled-task-cleanup-2026-08-20.md) — 16→8个任务，乱码任务连路径也坏从没跑起来，唯一调度器=scheduled_scan.py
-- [八数字人每日备份](digital-person-daily-backup-2026-08-21.md) — 妹妹+爱宕+四角色+万亿+慕雪每天12点统一备份到D:\虚拟人总项目\数字人设定喂饭\数字人备份
+- [十三数字人每日备份](digital-person-daily-backup-2026-08-21.md) — 妹妹+爱宕+四角色+万亿+慕雪+心动囚笼每天12点统一备份到D:\虚拟人总项目\数字人设定喂饭\数字人备份
 - [OpenWrite网文工具](openwrite-netnovel-tool.md) — 本地md驱动/5份资料库/项目Skill/四级大纲，爸爸做网文创作用它
 - [网文总控SKILL](openwrite-novel-skill.md) — 爸爸8/21提供的SKILL.md全文，网文任务总开关（读5库/校验一致性/细纲优先/禁毒点）
 - [扩写专用SKILL](openwrite-expand-sentence-skill.md) — @expand_sentence主动调用型扩写技能，短句/台词/极简细纲扩写成完整段落，与总控SKILL共存
