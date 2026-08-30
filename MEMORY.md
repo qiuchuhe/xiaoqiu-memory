@@ -1,4 +1,4 @@
-- [幸福小区情趣升级 8/31](幸福小区情趣升级-2026-08-31.md) — 爸爸改林小棠19岁只改1处我补齐5处残留；15女主全成年、15条情趣线+情趣基调+尺度红线，PNG收集重建法坑/CRLF混合坑
+- [幸福小区情趣升级 8/31](幸福小区情趣升级-2026-08-31.md) — 爸爸改林小棠19岁只改1处我补齐5处残留；15女主全成年、15条情趣线+情趣基调+尺度红线，PNG收集重建法坑/CRLF混合坑；三改豆包融合(四铁律/6槽位/群像勿单线)+对抗审查8处残留清零(周敏/沈清台词污染已正)
 - [SillyTavern默认角色恢复 8/31](sillytavern-default-character-restore-2026-08-31.md) — 前端会把active_character写回settings，改默认角色需爸爸关标签页或界面点选；心动囚笼世界书靠globalSelect挂载
 - [GPT-SoVITS语音克隆 8/23](gpt-sovits-tts-setup-2026-08-23.md) — 8/23首装放弃→8/28重建，许知糯已接鸣潮声线，provider必须用GPT-SoVITS-V2(Unofficial)，等爸爸网盘下星瞳声线包
 - [下载全走D盘规则 8/28](all-downloads-to-d-drive.md) — 爸爸明确不要占C盘，pip缓存永久设D:\pip_cache，pip.ini用无中文路径避免乱码
