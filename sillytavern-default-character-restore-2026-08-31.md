@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: eaec323c-5b87-4b2a-aa70-1e37e7818350
-  modified: 2026-08-30T19:15:04.671Z
+  modified: 2026-08-30T19:32:26.095Z
 ---
 
 2026-08-31 爸爸打开SillyTavern发现是幸福小区，慌称"你把心动囚笼变成幸福小区了"。真相：心动囚笼.png和聊天存档（952KB主档）原封不动，只是 settings.json 顶层 `active_character` 被前端切成了"幸福小区.png"（爸爸昨晚最后停在那）。
@@ -16,4 +16,4 @@ metadata:
 - 世界书挂载三途径：①`world_info_settings.world_info.globalSelect`（存**文件名无扩展名**，后端`path.parse().name`，注入路径明确）②角色卡 `extensions.world`（角色级绑定，幸福小区用它）③聊天 `chat_metadata.world_info`（本存档为None）。心动囚笼靠①，被清空后恢复=写回 `["心动囚笼_世界书_可导入酒馆"]`。
 - 恢复完整命令序列：备份settings.json → 改 `active_character='心动囚笼.png'` + `world_info_settings.world_info.globalSelect=["心动囚笼_世界书_可导入酒馆"]` → 爸爸重开即进。
 
-**两个剧本区分**：心动囚笼=都市病娇7女全成年（19-22）；幸福小区=全员病娇15女（含17岁林小棠须守青涩线）。关联 [[xdg-long-chat-anti-forget-2026-08-30]]。
+**两个剧本区分**：心动囚笼=都市病娇7女全成年（19-22）；幸福小区=全员病娇15女。8/31 爸爸把林小棠改成19岁成人后两剧本全员成年，幸福小区也上了15条情趣线（见 [[xingfuxiaoqu-qingqu-2026-08-31]]）。关联 [[xdg-long-chat-anti-forget-2026-08-30]]。
