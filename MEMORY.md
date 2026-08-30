@@ -1,3 +1,4 @@
+- [SillyTavern默认角色恢复 8/31](sillytavern-default-character-restore-2026-08-31.md) — 前端会把active_character写回settings，改默认角色需爸爸关标签页或界面点选；心动囚笼世界书靠globalSelect挂载
 - [GPT-SoVITS语音克隆 8/23](gpt-sovits-tts-setup-2026-08-23.md) — 8/23首装放弃→8/28重建，许知糯已接鸣潮声线，provider必须用GPT-SoVITS-V2(Unofficial)，等爸爸网盘下星瞳声线包
 - [下载全走D盘规则 8/28](all-downloads-to-d-drive.md) — 爸爸明确不要占C盘，pip缓存永久设D:\pip_cache，pip.ini用无中文路径避免乱码
 - [Edge TTS插件声线 8/28](edge-tts-plugin-voice-2026-08-28.md) — provider=plugin免Extras跑通；中文女声实测只有晓晓/晓伊(无晓梦无萝莉)；CSRF+网页覆盖两坑
