@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: eaec323c-5b87-4b2a-aa70-1e37e7818350
-  modified: 2026-08-27T14:19:46.553Z
+  modified: 2026-08-31T04:11:00.551Z
 ---
 
 # 交易时段自动扫描（2026-08-20 精简后）
@@ -61,3 +61,19 @@ metadata:
 
 **cron 自动汇报**：7 个 durable cron（写入 .claude/scheduled_tasks.json，VSCode 重启不丢；旧的 session-only 重启即失），每窗口后约 10 分钟触发（9:34/9:45/10:13/10:40/13:17/14:43/22:08），prompt 校验 generated_at 新鲜度（今天+≤25分钟）+ window 防读到被覆盖旧数据。
 ⚠️ durable recurring **7 天自动过期**需重建；触发仍依赖对话空闲，忙时排队延迟；兜底=读 `扫描报告/` 最新 md。
+
+## 2026-08-31 汇报链路修复（爸爸反馈"早上扫描显示已过期/结论不进对话"）
+
+**根因3个叠加**：
+1. **7个cron汇报任务延迟~30分钟触发**（9:34→实际10:04、9:45→10:15、10:13→10:43、10:40→11:10）→ 超25分钟新鲜窗口 → 全判"过期"
+2. **报告实际是 `.html`**（scheduled_scan.py generate_report 8/28起生成 html 表格报告），但汇报 prompt 还 Glob 找 `.md` → 永远读不到报告
+3. 触发依赖 REPL 空闲，会话忙/关时排队延迟
+
+**修复**：删7旧+建7新 cron（同触发时间），prompt 全部重写：
+- **去掉"距当前≤25分钟"新鲜窗口** → 改"当天窗口已跑即有效，无论何时查询都报结论"（结论带时间戳，不会误导）
+- **Glob 找 `扫描报告_<今天>_*_窗口.(html|md)`**
+- 结论从报告/结果文件提取：策略一_result.json(bounce_signal.txt/morning_washout_result.json/market_health.json)
+- 当天窗口未跑才说"今日XX扫描未生成"
+- 新任务id: 竞价fcbcf9ab/低开292b82fb/早盘9dda2516/洗盘01730957/午后c4a089bf/尾盘9d873494/晚间487667da。**8/31创建，9/7过期需重建**。
+
+**注意**：报告格式已是 `.html`（含scanner候选表/monitor/health/washout过程），不是 .md；洗盘10:30不在Windows计划任务（register_tasks.ps1只到1433），靠 catchup_market.py 开机补扫兜底（支持10:30窗口）。8/31已验证当天4窗口结论可对话内汇报（竞价0候选/低开7+5只/早盘0候选+大盘普跌/洗盘12只）。
