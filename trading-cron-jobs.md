@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: eaec323c-5b87-4b2a-aa70-1e37e7818350
-  modified: 2026-08-31T04:11:00.551Z
+  modified: 2026-09-03T13:52:20.245Z
 ---
 
 # 交易时段自动扫描（2026-08-20 精简后）
@@ -76,4 +76,20 @@ metadata:
 - 当天窗口未跑才说"今日XX扫描未生成"
 - 新任务id: 竞价fcbcf9ab/低开292b82fb/早盘9dda2516/洗盘01730957/午后c4a089bf/尾盘9d873494/晚间487667da。**8/31创建，9/7过期需重建**。
 
-**注意**：报告格式已是 `.html`（含scanner候选表/monitor/health/washout过程），不是 .md；洗盘10:30不在Windows计划任务（register_tasks.ps1只到1433），靠 catchup_market.py 开机补扫兜底（支持10:30窗口）。8/31已验证当天4窗口结论可对话内汇报（竞价0候选/低开7+5只/早盘0候选+大盘普跌/洗盘12只）。
+**注意**：报告格式已是 `.html`（含scanner候选表/monitor/health/washout过程），不是 .md；洗盘10:30不在Windows计划任务（register_tasks.ps1只到1433），靠 catchup_market.py 开机补扫兜底（支持10:30窗口）。8/31已验证当天4窗口结论可对话内汇报（竞价0候选/低开7+5只/早盘0候选+大盘普跌/洗盘12只）。更正：**Windows任务实际含 10:30 洗盘**（秋策_洗盘确认_1030，8/27 setup_tasks_v2 注册7个），此条"注意"已过时。
+
+## 2026-09-03 后台AI解读（爸爸不在页面也能拿结论）
+
+**背景**：爸爸反馈"定点选股失效、对话框不生成除非手动让我来"。根因双层：①Windows扫描任务（名=**秋策_竞价扫描_0925** 等7个，动作=`pythonw scheduled_scan.py <窗口>`）**独立后台一直正常跑**，报告全落D盘（扫描报告/*.html + scheduled_scan_result.json）；②Claude内置cron汇报（fcbcf9ab等7个durable）**只在 Claude Code 会话存活+空闲才触发**，爸爸不在页面就哑火。所以"扫描在跑但对话没弹"。
+
+**修复**：scheduled_scan.py 嵌入 `ai_interpret()`（备份 .bak_ai_report）：
+- 每窗口扫描完 → 唤醒 headless `claude.exe`（`C:\Users\ASUS\AppData\Roaming\npm\node_modules\@anthropic-ai\claude-code\bin\claude.exe`，npm全局装的 claude.cmd 指向它；**已验证不依赖爸爸页面、直连可用**）→ 用 Read 读该窗口结果文件（AI_WINDOW_FILES 映射：9:25→策略一+auction；9:36→tech_bounce；10:03→策略一+breakout+health；10:30→washout；13:07→position；14:33/21:57→策略一+health）→ ≤150字中文解读 → **追加写 `策略1\AI解读\<日期>.md`**
+- 数据流定型：Windows任务 → scheduled_scan.py → ①HTML报告 ②气泡 ③headless AI解读→AI解读/日期.md
+- Windows任务**不用改**（仍调 scheduled_scan.py，新逻辑自动生效）
+- 爸爸查看三途径：直接开 AI解读/日期.md / 打开Claude Code问我(我读该文件汇总) / 气泡点开HTML
+- 每窗口约消耗1次小 Claude 调用（几KB token，量很小）
+- 实测：14:33 窗口解读成功写入（出版传媒45分等回落/大盘416跌勿追高）
+
+**关联**：对话内cron汇报(fcbcf9ab等7个)保留作"爸爸在页面时"体验，9/7过期需重建；爸爸不在页面时靠AI解读文件兜底。关联 [[auto-catchup-on-startup]]。
+
+**坑**：Git Bash `date` 返回假时间(说09-01)，真实时间以 PowerShell Get-Date / 文件mtime 为准(09-03)——查"今天/哪天的数据"务必用文件mtime校准，别信bash date。
