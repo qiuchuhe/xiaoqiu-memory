@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: eaec323c-5b87-4b2a-aa70-1e37e7818350
-  modified: 2026-09-03T13:52:20.245Z
+  modified: 2026-09-03T14:03:55.581Z
 ---
 
 # 交易时段自动扫描（2026-08-20 精简后）
@@ -90,6 +90,10 @@ metadata:
 - 每窗口约消耗1次小 Claude 调用（几KB token，量很小）
 - 实测：14:33 窗口解读成功写入（出版传媒45分等回落/大盘416跌勿追高）
 
-**关联**：对话内cron汇报(fcbcf9ab等7个)保留作"爸爸在页面时"体验，9/7过期需重建；爸爸不在页面时靠AI解读文件兜底。关联 [[auto-catchup-on-startup]]。
+**实测确认（当晚21:58）**：21:57 晚间复盘窗口全自动跑通——Windows计划任务→扫描→ai_interpret自动解读→写文件+弹气泡，爸爸零操作。解读质量高（吉华50分等回落/东贝36明日开盘买/普路通33🚫高位滞涨疑出货/6只候选）。
+
+**⚠️ cron 实测不触发（关键结论）**：9/3 建 3 分钟 one-shot 测试任务(2400cf5c)，到点**没 fire**（CronList 仍在）。Claude Code 内置 cron 在此 VSCode 环境"注册可见但到点不触发"，环境级 bug，不可依赖。**汇报改为不依赖平台内 cron**：靠 ①Windows计划任务(独立) ②headless claude AI解读落盘 AI解读/日期.md ③Windows气泡（_balloon 弹解读前120字，爸爸刷抖音也能看到结论，点击打开当天解读文件）。平台内 cron 那7个(fcbcf9ab等)作废不重建，删不删随意。
+
+**爸爸最终要的体验**（"开着平台去刷抖音，到点自动触发"）= 到点右下角 Windows 气泡弹 AI 结论 + AI解读落盘，回平台问我可展开。已实现并实测。
 
 **坑**：Git Bash `date` 返回假时间(说09-01)，真实时间以 PowerShell Get-Date / 文件mtime 为准(09-03)——查"今天/哪天的数据"务必用文件mtime校准，别信bash date。
