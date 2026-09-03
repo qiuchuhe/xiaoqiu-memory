@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: eaec323c-5b87-4b2a-aa70-1e37e7818350
-  modified: 2026-09-03T14:03:55.581Z
+  modified: 2026-09-03T14:37:29.469Z
 ---
 
 # 交易时段自动扫描（2026-08-20 精简后）
@@ -83,7 +83,12 @@ metadata:
 **背景**：爸爸反馈"定点选股失效、对话框不生成除非手动让我来"。根因双层：①Windows扫描任务（名=**秋策_竞价扫描_0925** 等7个，动作=`pythonw scheduled_scan.py <窗口>`）**独立后台一直正常跑**，报告全落D盘（扫描报告/*.html + scheduled_scan_result.json）；②Claude内置cron汇报（fcbcf9ab等7个durable）**只在 Claude Code 会话存活+空闲才触发**，爸爸不在页面就哑火。所以"扫描在跑但对话没弹"。
 
 **修复**：scheduled_scan.py 嵌入 `ai_interpret()`（备份 .bak_ai_report）：
-- 每窗口扫描完 → 唤醒 headless `claude.exe`（`C:\Users\ASUS\AppData\Roaming\npm\node_modules\@anthropic-ai\claude-code\bin\claude.exe`，npm全局装的 claude.cmd 指向它；**已验证不依赖爸爸页面、直连可用**）→ 用 Read 读该窗口结果文件（AI_WINDOW_FILES 映射：9:25→策略一+auction；9:36→tech_bounce；10:03→策略一+breakout+health；10:30→washout；13:07→position；14:33/21:57→策略一+health）→ ≤150字中文解读 → **追加写 `策略1\AI解读\<日期>.md`**
+- **9/3 盘中首版**：每窗口扫描完都唤醒 headless claude 解读该窗口→写 AI解读/日期.md+弹气泡。
+- **9/3 晚改版·收盘定论模式（爸爸拍板）**：盘中窗口(9:25~13:07)**静默**——扫描照跑、报告+历史归档照存，但**不弹气泡也不跑AI**（省token）；只有定论窗口跑 AI 总账：`if time_str in ("14:33","21:57"): ai_ok = ai_interpret(...)`。
+- **14:33尾盘** ai_interpret 读**当天全部窗口历史**（Glob scheduled_scan_history/含YYYYMMDD的json）+策略一_result+market_health → 5段总账：①大盘回顾②盘中窗口信号③尾盘最终候选④**明日买入建议**(逐只买点/止损/仓位/买不买，高位等回调，全不合适写空仓等待)⑤风险自查，写 AI解读/日期.md+**弹气泡**（200字预览+点开全文）。
+- **21:57晚间** 同总账版，另 Glob 读 `每日信息\每日新闻\<今天>-晚间情报.md`/当晚掘金 → 出【明日买入建议·晚间版】，②隔夜消息面。
+- **气泡收敛**：定论窗口只弹 **AI 总账气泡**（普通报告气泡只在 AI 挂/部分脚本失败时兜底）；盘中窗口普通报告气泡仅失败时弹。
+- ai_interpret 返回 bool（成功 True），claude 超时240s，输出=5段总结文本
 - 数据流定型：Windows任务 → scheduled_scan.py → ①HTML报告 ②气泡 ③headless AI解读→AI解读/日期.md
 - Windows任务**不用改**（仍调 scheduled_scan.py，新逻辑自动生效）
 - 爸爸查看三途径：直接开 AI解读/日期.md / 打开Claude Code问我(我读该文件汇总) / 气泡点开HTML
