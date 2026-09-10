@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: eaec323c-5b87-4b2a-aa70-1e37e7818350
-  modified: 2026-09-10T15:34:06.596Z
+  modified: 2026-09-10T15:34:22.384Z
 ---
 
 2026-09-10 给爸爸搭好了**绝区零换装 mod 环境**。游戏是 TapTap 国服，装在 `D:\TapTap\PC Games\713200-绝区零\games\ZenlessZoneZero Game`。
@@ -100,7 +100,10 @@ F10 = 重载 mod ｜ F6 = 开关 ZZMI ｜ F12 = 显隐帮助面板。mod 换的�
 
 ## 已装的 mod（2026-09-10 晚，5 角色各启用 1 个）
 
-维琳娜 `Velina_LuneBride`（#690037 婚纱）｜ 妮可 `Nicole_Nude`（#530332 裸装）｜ 简 `Jane_BunnyGirl` ｜ 可琳 `Corin_Nun` ｜ 蕾米埃尔 `Remielle_Lady` —— 另 22 个变体以 `DISABLED_` 前缀挂在 Mods 里。
+维琳娜 `Velina_LuneBride`（#690037 婚纱）｜ 妮可 `Nicole_Nude`（#530332 裸装）｜ 简 `Jane_BunnyGirl` ｜ 可琳 `Corin_Nun` ｜ 蕾米埃尔 `Remielle_Lady` —— 另 23 个变体以 `DISABLED_` 前缀挂在 Mods 里。
+
+**⚠️ 其中只有 3 个真能用**：可琳、维琳娜、蕾米埃尔。**简和妮可的已因 3.2.0 补丁失效**（详见坑 21），文件夹留着但别指望它生效。爸爸说过停用的变体都要保留、别删。
+维琳娜 9/10 深夜按爸爸要求从 NSFW 换回婚纱（NSFW 那套改名 `DISABLED_Velina_NSFW` **停用但没删**，228MB，爸爸若明确要删再删）。
 
 （`Velina_Elegance` / `Remielle_Swimsuit` / `Velina_VelielleFan` 因哈希 0 共享已挂起，见坑 10。爸爸要求保留全部停用变体，别删。）
 
