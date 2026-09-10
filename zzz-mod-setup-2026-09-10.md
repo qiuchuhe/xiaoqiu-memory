@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: eaec323c-5b87-4b2a-aa70-1e37e7818350
-  modified: 2026-09-10T14:30:23.317Z
+  modified: 2026-09-10T14:30:41.004Z
 ---
 
 2026-09-10 给爸爸搭好了**绝区零换装 mod 环境**。游戏是 TapTap 国服，装在 `D:\TapTap\PC Games\713200-绝区零\games\ZenlessZoneZero Game`。
@@ -48,11 +48,16 @@ F10 = 重载 mod ｜ F6 = 开关 ZZMI ｜ F12 = 显隐帮助面板。mod 换的�
 
 游戏目录有 **`HoYoKProtect.sys`**（米哈游内核级反作弊）。ZZMI 走 `d3d11.dll` 劫持注入 = 改客户端，米哈游条款明确禁止。国服比国际服查得严，轻则踢下线、重则**永久封号**。爸爸 2026-09-10 知情后选择继续使用。
 
-## 已装的 mod（2026-09-10，5 角色各启用 1 个）
+## 已装的 mod（2026-09-10 晚，5 角色各启用 1 个）
 
-妮可 `Nicole_Casualwear` ｜ 简 `Jane_BunnyGirl` ｜ 可琳 `Corin_Nun` ｜ 蕾米埃尔 `Remielle_Lady` ｜ 维琳娜 `Velina_Velielle` —— 另 20 个变体以 `DISABLED_` 前缀挂在 Mods 里。
+维琳娜 `Velina_LuneBride`（#690037 婚纱）｜ 妮可 `Nicole_Nude`（#530332 裸装）｜ 简 `Jane_BunnyGirl` ｜ 可琳 `Corin_Nun` ｜ 蕾米埃尔 `Remielle_Lady` —— 另 22 个变体以 `DISABLED_` 前缀挂在 Mods 里。
 
-（原先启用的 `Remielle_Swimsuit` / `Velina_Elegance` 因哈希对不上已改用 `DISABLED_` 前缀挂起来，见坑 10。）
+（`Velina_Elegance` / `Remielle_Swimsuit` / `Velina_VelielleFan` 因哈希 0 共享已挂起，见坑 10。爸爸要求保留全部停用变体，别删。）
+
+**按键表**：`D:\XXMI\_keys.py` 扫启用中 mod 的所有 `[Key…]` 段生成 `C:\Users\ASUS\Desktop\绝区零MOD按键表.html`。
+- **解析坑**：结尾的 `.` `,` **本身就是合法按键**（蕾米埃尔的 `Ctrl+,` `Ctrl+.`），别当多余逗号 `rstrip(',')` 掉；多行值才需要剥尾逗号。
+- 要点：妮可裸装**无按键**；蕾米埃尔 10 键全 `Ctrl+方向`/`Ctrl+,` `.`；维琳娜先按 `H` 开立绘再 `J`/拖拽；简 15 键作者多半没命名（`$variableN`）只能进游戏试。
+- 角色专属键**只在该角色正被渲染时响应**，得带进队伍。
 
 **卡池来源**：我搜 GameBanana 绝区零专区（5460 个 mod）按点赞排序，爸爸点名了这 5 个角色。以后他要新角色，照这个流程走。
 
