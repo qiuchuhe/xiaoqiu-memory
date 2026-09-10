@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: eaec323c-5b87-4b2a-aa70-1e37e7818350
-  modified: 2026-09-10T12:39:48.032Z
+  modified: 2026-09-10T14:30:23.317Z
 ---
 
 2026-09-10 给爸爸搭好了**绝区零换装 mod 环境**。游戏是 TapTap 国服，装在 `D:\TapTap\PC Games\713200-绝区零\games\ZenlessZoneZero Game`。
@@ -34,7 +34,9 @@ metadata:
 
 11. **游戏版本 = `CNPRODWin3.2.0`**（读游戏目录 `version_info`）。9/9 刚打过补丁（`GameAssembly.dll` 时间戳）—— 新角色（维琳娜/蕾米埃尔）的 mod 容易因补丁失效，老角色（可琳）反而稳。
 
-12. **`include_recursive = Mods` 是相对路径，两处都放最保险**：游戏目录 `Mods\` 和 `D:\XXMI\ZZMI\Mods\` 各放一份（占双倍空间，实测 4.7GB×2）。确认哪边生效后可以删一份。
+12. **两处 Mods 已合并成 junction（2026-09-10 晚）**。原本游戏目录 `Mods\` 和 `D:\XXMI\ZZMI\Mods\` 各放一份真拷贝（5.1G×2=10.2G）。现在**真身只在 `D:\XXMI\ZZMI\Mods`**，游戏目录那份是 `mklink /J` 指向它的 junction —— 两个路径同一份数据，省 5.1G，且不必再纠结 `include_recursive = Mods` 到底相对哪边解析（日志只会显示 `D:/XXMI/ZZMI/d3dx.ini`，两处都读不出来）。**以后加 mod 只往 `D:\XXMI\ZZMI\Mods` 放一处即可**。
+    - **建 junction 别用 git bash 调 cmd** —— 中文路径会被 bash→cmd 的编码搞坏，报「文件名、目录名或卷标语法不正确」且**静默失败**。要用 Python（`subprocess.run(['cmd','/c','mklink','/J',link,target])`，list 参数走 CreateProcessW 是 Unicode 安全的），或把路径写进 .py 文件。**步骤：先 `os.rename` 改名（瞬时、可回滚）→ 建链接 → 验证文件数 → 才 rmtree 旧的**。
+    - 删大目录时 `shutil.rmtree` 可能 `PermissionError [WinError 5]`（占用/只读）；补救：先 `os.chmod(p, stat.S_IWRITE)` 清只读属性，再 `subprocess.run(['cmd','/c','rd','/S','/Q',p])` 重试，通常一遍就干净。
 
 13. **离线看 mod 长啥样**：`D:\XXMI\_preview_build.py` 建好了 —— 靠**压缩包内容比对**把本地文件夹精确匹配到 GameBanana mod id（25 个文件夹全部 92~100% 覆盖率），再抓 `apiv11/Mod/{id}/ProfilePage` 的 `_aPreviewMedia._aImages`，图片存 `D:\XXMI\_mod预览\<文件夹名>\`，生成 `C:\Users\ASUS\Desktop\绝区零MOD预览.html`（绿框标启用中的）。可传 mod id 参数单独补抓：`python _preview_build.py 529117`。
 
