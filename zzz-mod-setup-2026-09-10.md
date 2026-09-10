@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: eaec323c-5b87-4b2a-aa70-1e37e7818350
-  modified: 2026-09-10T12:39:40.527Z
+  modified: 2026-09-10T12:39:48.032Z
 ---
 
 2026-09-10 给爸爸搭好了**绝区零换装 mod 环境**。游戏是 TapTap 国服，装在 `D:\TapTap\PC Games\713200-绝区零\games\ZenlessZoneZero Game`。
@@ -46,9 +46,11 @@ F10 = 重载 mod ｜ F6 = 开关 ZZMI ｜ F12 = 显隐帮助面板。mod 换的�
 
 游戏目录有 **`HoYoKProtect.sys`**（米哈游内核级反作弊）。ZZMI 走 `d3d11.dll` 劫持注入 = 改客户端，米哈游条款明确禁止。国服比国际服查得严，轻则踢下线、重则**永久封号**。爸爸 2026-09-10 知情后选择继续使用。
 
-## 已装的 mod（2026-09-10 首批，5 角色各启用 1 个）
+## 已装的 mod（2026-09-10，5 角色各启用 1 个）
 
-妮可 Nicole_Casualwear ｜ 简 Jane_BunnyGirl（100MB）｜ 蕾米埃尔 Remielle_Swimsuit ｜ 维琳娜 Velina_Elegance ｜ 可琳 Corin_Nun —— 另 20 个变体以 `DISABLED_` 前缀挂在 Mods 里。
+妮可 `Nicole_Casualwear` ｜ 简 `Jane_BunnyGirl` ｜ 可琳 `Corin_Nun` ｜ 蕾米埃尔 `Remielle_Lady` ｜ 维琳娜 `Velina_Velielle` —— 另 20 个变体以 `DISABLED_` 前缀挂在 Mods 里。
+
+（原先启用的 `Remielle_Swimsuit` / `Velina_Elegance` 因哈希对不上已改用 `DISABLED_` 前缀挂起来，见坑 10。）
 
 **卡池来源**：我搜 GameBanana 绝区零专区（5460 个 mod）按点赞排序，爸爸点名了这 5 个角色。以后他要新角色，照这个流程走。
 
