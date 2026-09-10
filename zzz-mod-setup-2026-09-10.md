@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: eaec323c-5b87-4b2a-aa70-1e37e7818350
-  modified: 2026-09-10T14:30:41.004Z
+  modified: 2026-09-10T15:00:16.311Z
 ---
 
 2026-09-10 给爸爸搭好了**绝区零换装 mod 环境**。游戏是 TapTap 国服，装在 `D:\TapTap\PC Games\713200-绝区零\games\ZenlessZoneZero Game`。
@@ -39,6 +39,13 @@ metadata:
     - 删大目录时 `shutil.rmtree` 可能 `PermissionError [WinError 5]`（占用/只读）；补救：先 `os.chmod(p, stat.S_IWRITE)` 清只读属性，再 `subprocess.run(['cmd','/c','rd','/S','/Q',p])` 重试，通常一遍就干净。
 
 13. **离线看 mod 长啥样**：`D:\XXMI\_preview_build.py` 建好了 —— 靠**压缩包内容比对**把本地文件夹精确匹配到 GameBanana mod id（25 个文件夹全部 92~100% 覆盖率），再抓 `apiv11/Mod/{id}/ProfilePage` 的 `_aPreviewMedia._aImages`，图片存 `D:\XXMI\_mod预览\<文件夹名>\`，生成 `C:\Users\ASUS\Desktop\绝区零MOD预览.html`（绿框标启用中的）。可传 mod id 参数单独补抓：`python _preview_build.py 529117`。
+
+14. **`exclude_recursive = DISABLED*` 只认文件夹名，不认文件名**。可琳 `Corin_Nun/武器/` 里作者放了 `kelin.ini` 和 `disabledkelin1.ini`（md5 完全相同，本意是禁用备份），但两份**都被加载**：同一个 `n` 键绑两遍 + 重复的 `global persist $variable` 声明打架。修法：把多余的那个**移出 Mods 树**（改名成 `.txt` 或 `.ini.bak` 也不安全，3DMigoto 判断扩展名可能是子串匹配，`.ini.bak` 仍含 `.ini`）。已移到 `D:\XXMI\_移出的重复ini\`。
+
+15. **mod 自带的按键说明 `.txt` 可能是旧版本残留，要以 ini 里的 `key =` 为准**。可琳那个 mod 的 `普通切换按键.txt` 写着「内衣恶魔 /」，但全 mod 只有 `key = 0 / o / n` 三处。**作者 GameBanana 页面原话才是准的**：「按 0 和 o 切换修女/恶魔小姐，按 N 切武器」——**没有 `/`**。原因是「内衣恶魔」那套是 **付费版内容**（作者放 afdian / fanbox / patreon），免费包里连贴图都没有，所以怎么按都切不出来，不是坏了。作者在下载区附了付费版预览图（`nsfw_acee7.rar` / `nsfw_suit.rar`），已解到 `D:\XXMI\_可琳预览\`。
+    - **教训**：先查 GameBanana 页面的作者描述（`apiv11/Mod/{id}/ProfilePage` 的 `_sText`，记得剥 HTML 转义），比翻 mod 包里的小 txt 靠谱。
+
+16. **`_folder2mod.json` 是文件夹→GameBanana id 的映射表**，查某 mod 的来源页面直接用（例：`Corin_Nun` = 529117）。
 
 ## 游戏内操作
 
