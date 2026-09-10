@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: eaec323c-5b87-4b2a-aa70-1e37e7818350
-  modified: 2026-09-10T11:39:53.633Z
+  modified: 2026-09-10T12:39:40.527Z
 ---
 
 2026-09-10 给爸爸搭好了**绝区零换装 mod 环境**。游戏是 TapTap 国服，装在 `D:\TapTap\PC Games\713200-绝区零\games\ZenlessZoneZero Game`。
@@ -26,7 +26,17 @@ metadata:
 5. **截图问爸爸要信息最费轮次** —— 直接从 `D:\XXMI\XXMI Launcher Log.txt` 读 DEBUG 日志 + 用 python 在 `XXMI Launcher.exe` 里搜字符串，比问他快得多。
 6. **解压不用装 7-Zip/WinRAR** —— Windows 自带的 `C:\Windows\System32\tar.exe`（bsdtar）**rar / 7z / zip 三种全支持**。
 7. **同角色多个 mod 会打架**（花屏错位）。规则：**每个角色只启用一个**，其余文件夹名前加 `DISABLED_`，按 F10 热重载即时切换。
-8. **GitHub 挡住但 GameBanana 能访问**（200），API `https://gamebanana.com/apiv11/Game/19567/...` 可用，但**会限流超时**，要重试 + sleep。
+8. **GitHub 挡住但 GameBanana 能访问**（200），API `https://gamebanana.com/apiv11/Game/19567/...` 可用，但**会限流超时**，要重试 + sleep（实测 6 次尝试 + 3/6/9/12s 退避，反复跑 3~4 轮才抓全）。
+
+9. **「F10 没反应」的真凶 = `deployed_migoto_signatures`**。XXMI 靠配置里这个签名表判断「dll 已部署过、跳过」。游戏退出时游戏目录被清空，但签名还留着 → XXMI 跳过部署 → 游戏里屁都没有。**日志判据：成功的启动一定有 `Deploying new D:\XXMI\ZZMI\d3d11.dll...` 两行，失败的那次这两行完全没有**。修法：把 `Importers.ZZMI.Importer.deployed_migoto_signatures` 设成 `{}`（顺带 `shortcut_deployed = False`）。**改配置前先确认 XXMI 没在跑**（它提权运行，taskkill 会拒绝访问，只能让爸爸手动关）。
+
+10. **mod 不生效 = 哈希对不上，有 60 秒离线判据**：抓出每个 mod 文件夹里所有 `hash = xxxxxxxx`，**同角色的不同作者 mod 正常会共享若干哈希**（实测可琳两个 mod 共享 9 个）。如果某个 mod 跟同角色其他 mod **共享 0 个**，说明它认的是另一套模型（旧版本 / 另一套服装），游戏里永远不会有那些哈希 → 永远不会生效。这次维琳娜 `Velina_Elegance`、蕾米埃尔 `Remielle_Swimsuit` 就是 0 共享，换成 `Velina_Velielle` / `Remielle_Lady` 立刻出来了。**不用进游戏、不用看日志**。
+
+11. **游戏版本 = `CNPRODWin3.2.0`**（读游戏目录 `version_info`）。9/9 刚打过补丁（`GameAssembly.dll` 时间戳）—— 新角色（维琳娜/蕾米埃尔）的 mod 容易因补丁失效，老角色（可琳）反而稳。
+
+12. **`include_recursive = Mods` 是相对路径，两处都放最保险**：游戏目录 `Mods\` 和 `D:\XXMI\ZZMI\Mods\` 各放一份（占双倍空间，实测 4.7GB×2）。确认哪边生效后可以删一份。
+
+13. **离线看 mod 长啥样**：`D:\XXMI\_preview_build.py` 建好了 —— 靠**压缩包内容比对**把本地文件夹精确匹配到 GameBanana mod id（25 个文件夹全部 92~100% 覆盖率），再抓 `apiv11/Mod/{id}/ProfilePage` 的 `_aPreviewMedia._aImages`，图片存 `D:\XXMI\_mod预览\<文件夹名>\`，生成 `C:\Users\ASUS\Desktop\绝区零MOD预览.html`（绿框标启用中的）。可传 mod id 参数单独补抓：`python _preview_build.py 529117`。
 
 ## 游戏内操作
 
