@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: eaec323c-5b87-4b2a-aa70-1e37e7818350
-  modified: 2026-09-10T15:00:16.311Z
+  modified: 2026-09-10T15:21:50.727Z
 ---
 
 2026-09-10 给爸爸搭好了**绝区零换装 mod 环境**。游戏是 TapTap 国服，装在 `D:\TapTap\PC Games\713200-绝区零\games\ZenlessZoneZero Game`。
@@ -46,6 +46,33 @@ metadata:
     - **教训**：先查 GameBanana 页面的作者描述（`apiv11/Mod/{id}/ProfilePage` 的 `_sText`，记得剥 HTML 转义），比翻 mod 包里的小 txt 靠谱。
 
 16. **`_folder2mod.json` 是文件夹→GameBanana id 的映射表**，查某 mod 的来源页面直接用（例：`Corin_Nun` = 529117）。
+
+17. **🔥 `D:\XXMI\ZZMI\d3dx_user.ini` 是诊断神器 —— 免进游戏就能看出「哪些 ini 真被加载了」**。3DMigoto 把每个带 `persist` 的变量按 `$\mods\<文件夹>\<相对路径>.ini\<变量名> = 值` 记在里面，**mtime = 最后一次变量变动**。三个用法：
+    - **看加载名单**：出现了 = 那个 ini 被解析过。没出现**不代表没加载** —— 只有声明了 `persist` 的 mod 才会留下记录（妮可 `Nicole.ini` 里 `persist` 出现 0 次，所以查不到，坑）。
+    - **看谁在渲染**：对比两次读到的值。维琳娜 `dress 1→2`、`arms 0→1` = 爸爸正在游戏里按她的键 = 她确实渲染着。简的 `jianbody.ini\active` 恒为 0 = **简的身体模型从没在游戏里出现过**（`$active` 只在 `hash = 06f9bc49` 命中时才置 1）。
+    - **看解析是否走完**：简 `jianbody.ini` 有**两个 `[Constants]`/`[Present]`**（行14/16 和 134/160），但 `shenti/piaodai/xiezi/siwa/tuihuan`（声明在第二个块里）都注册成功 → **证明 3DMigoto 对同文件重复段是「追加合并」不是报错**，那个结构不是 bug，别去"修"。（作者是拿 GIMI 生成的 ini 改的，XXMI 合并工具会额外插一个头部 `[Constants]/[Present]`。）
+
+18. **🔥 「哈希还存不存在」的决定性判据 = 信标 ini**（比 F8 帧分析省事，不用重启、不用开 hunting）。在目标 mod 文件夹放一个 `_canary_test.ini`：
+    ```ini
+    [Constants]
+    global persist $canary_jane_bodypos = 0
+    [Present]
+    $canary_jane_loaded = 1
+    [TextureOverrideCanaryjanebodypos]
+    hash = 06f9bc49
+    $canary_jane_bodypos = 1
+    ```
+    游戏只要渲染到那个哈希就把变量记成 1，**且永不重置**（别在 `[Present]` 里清零）。按 **F10 热重载**后让角色上场，再回读 `d3dx_user.ini`：
+    - 变量变 1 → 哈希存在、mod 逻辑没问题 → 是**「角色没被渲染到你看的那个界面」**
+    - 变量还是 0 → **游戏补丁把模型哈希改了，这个 mod 已过期**，只能等作者更新
+    多个 `[TextureOverride]` 可以共用同一个 hash（按段名区分、按文件顺序依次执行），所以信标不会跟原 mod 打架。
+
+19. **同角色哈希交叉比对（坑10）在简/妮可身上「全部通过」**：简 `Jane_BunnyGirl` 与 `DISABLED_Jane_HalfNude` 共享 15/17、与 `DISABLED_Jane_Doe` 共享 8；妮可 `Nicole_Nude` 与 8 个妮可版本共享 9~26/27。**所以这两个 mod 认的模型是对的**，问题不在哈希 —— 别看到"没生效"就往这条路上冲。
+    - 工具：`D:\XXMI\_hash_compare.py`（扫全部 `Jane*`/`Nicole*` 文件夹出交集矩阵）。
+    - **妮可文件夹里的 `DISABLED_BACKUP_1723676908.Nicole.ini` 是加载着的**（`DISABLED_` 前缀对文件名无效，同坑14），但它是新版 `Nicole.ini` 的**子集**（只少 `.1024` 贴图系列），段名重名会被 3DMigoto 合并，**实测无害**。已按作者原意移到 `D:\XXMI\_移出的重复ini\`。
+
+20. **XXMI Launcher 自己不记 mod 名单**。`XXMI Launcher Config.json` 里只有包版本/主题/代理这些，没有任何 enabled-mods 注册表 —— mod 的启用状态**只由 `Mods\` 下的文件夹名（`DISABLED_` 前缀）决定**。而且它在 `D:\XXMI\`,不在游戏目录（游戏目录那份 `Mods` 是 junction，对 3DMigoto 只是摆设 —— 3DMigoto 读的是 `d3dx.ini` 所在目录 `D:\XXMI\ZZMI\Mods`）。
+    - **ZZMI 这个构建不写 `d3d11.log`**（游戏目录和 `D:\XXMI\ZZMI\` 都没有），`[Logging]` 全是 0、`[Hunting] hunting = 0`、`show_warnings = 0` —— **所以「看日志」这条路是不通的，别浪费轮次**，直接上坑17/18 的两招。
 
 ## 游戏内操作
 
