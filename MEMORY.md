@@ -4,6 +4,7 @@
 - [SillyTavern默认角色恢复 8/31](sillytavern-default-character-restore-2026-08-31.md) — 前端会把active_character写回settings，改默认角色需爸爸关标签页或界面点选；心动囚笼世界书靠globalSelect挂载
 - [GPT-SoVITS语音克隆 8/23](gpt-sovits-tts-setup-2026-08-23.md) — 8/23首装放弃→8/28重建，许知糯已接鸣潮声线，provider必须用GPT-SoVITS-V2(Unofficial)，等爸爸网盘下星瞳声线包
 - [下载全走D盘规则 8/28](all-downloads-to-d-drive.md) — 爸爸明确不要占C盘，pip缓存永久设D:\pip_cache，pip.ini用无中文路径避免乱码
+- [C盘膨胀源与可清理项 9/13](c-drive-bloat-sources.md) — 三大自动膨胀源(NVIDIA着色器缓存/育碧patch缓存每次+577MB/豆包微信日志)；隐藏的pagefile16.7G+hiberfil6.1G；删除前必须爸爸点名否则权限拦
 - [Edge TTS插件声线 8/28](edge-tts-plugin-voice-2026-08-28.md) — provider=plugin免Extras跑通；中文女声实测只有晓晓/晓伊(无晓梦无萝莉)；CSRF+网页覆盖两坑
 - [计划任务清理 8/20](scheduled-task-cleanup-2026-08-20.md) — 16→8个任务，乱码任务连路径也坏从没跑起来，唯一调度器=scheduled_scan.py
 - [十三数字人每日备份](digital-person-daily-backup-2026-08-21.md) — 妹妹+爱宕+四角色+万亿+慕雪+心动囚笼每天12点统一备份到D:\虚拟人总项目\数字人设定喂饭\数字人备份
