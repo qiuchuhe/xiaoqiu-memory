@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: eaec323c-5b87-4b2a-aa70-1e37e7818350
-  modified: 2026-09-14T11:02:02.253Z
+  modified: 2026-09-14T11:02:09.582Z
 ---
 
 2026-09-10 给爸爸搭好了**绝区零换装 mod 环境**。游戏是 TapTap 国服，装在 `D:\TapTap\PC Games\713200-绝区零\games\ZenlessZoneZero Game`。
@@ -128,4 +128,4 @@ F10 = 重载 mod ｜ F6 = 开关 ZZMI ｜ F12 = 显隐帮助面板。mod 换的�
 
 **卡池来源**：我搜 GameBanana 绝区零专区（5460 个 mod）按点赞排序，爸爸点名了这 5 个角色。以后他要新角色，照这个流程走。
 
-**副产品**：排查时发现 C 盘被 NVIDIA 着色器缓存吃了 10.3GB（`AppData\Local\NVIDIA\DXCache` 7.77GB + `NRC` 2.32GB），清掉释放 7.72GB。**这次没做 junction 挪到 D 盘**，下次 C 盘又紧张可以提。
+**副产品**：排查时发现 C 盘被 NVIDIA 着色器缓存吃了 10.3GB（`AppData\Local\NVIDIA\DXCache` 7.77GB + `NRC` 2.32GB），清掉释放 7.72GB。**这次没做 junction 挪到 D 盘**。→ C 盘膨胀源的完整清单见 [[c-drive-bloat-sources]]。
