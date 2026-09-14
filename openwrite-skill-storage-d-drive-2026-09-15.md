@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: eaec323c-5b87-4b2a-aa70-1e37e7818350
-  modified: 2026-09-14T17:17:33.318Z
+  modified: 2026-09-14T17:23:04.064Z
 ---
 
 2026-09-15 摸清并改造了 OpenWrite 的技能存储机制。
@@ -26,7 +26,9 @@ metadata:
 **D 盘方案（爸爸的硬要求：不许占 C 盘）**
 用目录联接 `mklink /J`，C 盘只放零字节门牌，实体在 `D:\ai写书\skill\`。
 `mklink /J` 不需要管理员权限（符号链接才需要）。
-6 个技能已全部改造：novel-writer / skill-creator（内置）+ chapter-ending / opening / dialogue / anti-ai-voice（9/15 新装）。
+9 个技能已全部改造：novel-writer / skill-creator（软件内置）+ novel_long_project_init / expand_sentence / expand_outfit（爸爸 8/21 的老技能，从项目 `.openwrite/skills/` 迁来）+ chapter-ending / opening / dialogue / anti-ai-voice（9/15 从 Tomsawyerhu/Chinese-WebNovel-Skill 抽的 4 个模块）。
+
+**迁移老技能时做的改造**：三份原文都写死"资料库位于 src 目录、固定 5 个文件"，但那是「海边民宿」专用的（src/world.md 等）；「病娇」那本用的是 `小说资料/`（世界观.md/人物库.md/章节摘要.md）。改成**自适应**：先探 `src/`，没有再探 `小说资料/`，都没有就提醒先建库。规则本身未改动。
 
 **两个反复踩的坑**
 1. **mklink 的路径必须用反斜杠**。传正斜杠会被它当开关，报 `无效开关 - "Users"`，联接建不起来。
