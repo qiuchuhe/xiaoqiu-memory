@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: eaec323c-5b87-4b2a-aa70-1e37e7818350
-  modified: 2026-09-14T11:01:41.359Z
+  modified: 2026-09-14T11:01:55.076Z
 ---
 
 2026-09-10 给爸爸搭好了**绝区零换装 mod 环境**。游戏是 TapTap 国服，装在 `D:\TapTap\PC Games\713200-绝区零\games\ZenlessZoneZero Game`。
@@ -89,6 +89,20 @@ metadata:
     2. 读 `d3dx_user.ini`（坑17）→ 看 ini 有没有被解析、变量有没有被按键改动过
     3. 放全量信标 + **对照组**（坑18/21）→ 直接量出「游戏补丁后还有几个哈希活着」
     - **对照组是灵魂**，绝对不能省。没有对照组，信标全 0 时你分不清是「mod 坏了」还是「你的方法坏了」——这次靠可琳/维琳娜全亮才敢下结论。
+
+23. **🔥🔥 「读哈希」比「探哈希」强一百倍 —— 妮可已成功救活（2026-09-13/14），坑 21 的「修不了」作废**
+    不用等作者、不用放信标、不用进游戏：**去 GameBanana 找同一角色里「最近更新过 ini」的那一版，直接读里面的 `hash =`**。作者更新 ini 时早就把当前游戏的真哈希写进去了 —— 比信标探测省事得多。
+    - **决定性样本**：`Nicole Casual Wear (Updated Ini's 3.0)`（GameBanana **#701827**，作者 PantaiSempai，2026-08-09 更新，作者描述原话 "it works for me after updating the hashes"）。**它只更新 ini、不带模型**，所以包很小、下载快，专门用来抄哈希。
+    - **当前游戏（3.2.0+）妮可真哈希**：
+      - 身体 Position `4af0a4cd` ｜ Texcoord `ed4c47a9` ｜ Blend `b793c804` ｜ 顶点上限 `b19da99e` ｜ IB `e53364dd`
+      - 头发 Position `6f931ca7` ｜ Texcoord `e04f4893` ｜ Blend `8171f5c9` ｜ 顶点上限 `d9b8d61a` ｜ IB `7dcfe907`
+      - 邦布（从没变过）`176bf3d7` `4e1d9c9a` `40e64ae2` `bb7fffe9`
+      - **旧的 11 个全死**：`89df5a07` `91c1b779` `7ecda89f` `8cc1262b` `5a4c1ef3` `199853eb` `06e4fd79` `347e4a48` `f6344432` `6847bbbd` `077c3500`
+    - **怎么找「2026 更新过的 mod」**：`apiv11/Util/Search/Results?_sModelName=Mod&_sOrder=best_match&_idGameRow=19567&_sSearchString=<角色名>&_nPerpage=50&_nPage=<n>`，**搜索记录用 `_idRow` 不是 `_id`**，再按 `_tsDateModified` 过滤年份。
+    - **⚠️ 社区的更新版 ini 里的 `draw = N, 0` 也可能不对**。N 必须 = `Position.buf 文件大小 / 40`（stride 40）。实测 #701827 的 Casualwear：body/0 写 53281 实际应是 **57638**、body/1 写 30709 实际 **48439**、body/2 写 21506 实际 21499（头发 12426 是对的）。**装之前一定拿 .buf 大小反算核对**，否则少画顶点。
+    - **⚠️ 「标题写 Updated」≠ 真的更新过哈希**。同批下载的 #564159 `LollipopNicole` 依旧全是旧哈希 —— 下完必须读 ini 核对，别信标题。
+    - **已装好**：`D:\XXMI\ZZMI\Mods\Nicole_CasualWear`（52 文件 / 1001.4 MB，9 个哈希全部核对通过）。原版资源来自 `_new7\2024_08_18`，ini 来自 #701827，draw 已修正；备份 `d3dx_user.ini.bak_0912_1032`。**等爸爸进游戏确认实际效果（2026-09-14 尚未确认）**。
+    - **N98 Nicole Lollipop（#590178）** 自带完整模型（3.9 MB position buf / 101123 顶点），身体哈希全死、邦布哈希全活且顶点数 632 与当前游戏吻合 → 用上表换触发哈希**有希望救活**，但尚未安装。
 
 ## 游戏内操作
 
