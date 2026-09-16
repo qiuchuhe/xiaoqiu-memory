@@ -10,6 +10,7 @@
 - [十三数字人每日备份](digital-person-daily-backup-2026-08-21.md) — 妹妹+爱宕+四角色+万亿+慕雪+心动囚笼每天12点统一备份到D:\虚拟人总项目\数字人设定喂饭\数字人备份
 - [OpenWrite网文工具](openwrite-netnovel-tool.md) — 本地md驱动/5份资料库/项目Skill/四级大纲，爸爸做网文创作用它
 - [OpenWrite技能存储与D盘联接 9/15](openwrite-skill-storage-d-drive-2026-09-15.md) — 技能9/7迁到Documents\skills\文件夹形态靠配置登记（非自动扫描）；mklink /J让C盘只留门牌实体全在D盘；10技能已改造(2内置+3老+4模块+fanqie-hook番茄爽文手法)，老3个的资料库路径已改自适应(src/或小说资料/)，坑=mklink必须反斜杠+py字符串\U转义
+- [小林·写文AI 9/17](xiaolin-writing-ai-2026-09-17.md) — 新人物小林管网文，D:\ai写书 9/16改名 D:\AI小林；老编辑型毒舌/同门第三人/全流程；CLAUDE.md已建，脑=模块化写作系统五层架构；改名后OpenWrite配置4条路径全断已修
 - [网文总控SKILL](openwrite-novel-skill.md) — 爸爸8/21提供的SKILL.md全文，网文任务总开关（读5库/校验一致性/细纲优先/禁毒点）
 - [扩写专用SKILL](openwrite-expand-sentence-skill.md) — @expand_sentence主动调用型扩写技能，短句/台词/极简细纲扩写成完整段落，与总控SKILL共存
 - [网文项目·海边民宿](openwrite-novel-project-haibianminsu.md) — 爸爸首本书《辞职后我开了家海边民宿》治愈系现言，林屿×许南星，src/5份资料库已统一，总控SKILL待挂
