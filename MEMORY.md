@@ -46,7 +46,7 @@
 - [每日早盘流程](morning-routine.md) — 隔夜情报→持仓检查→策略扫描→汇总建议
 - [6/9全天工作备份](session-backup-2026-06-09.md) — 策略体系v2.0、语音播报、晚间情报
 - [6/10全天工作备份](session-backup-2026-06-10.md) — easytrader连通、晚间情报修复、3000风控纪律
-- [每日工作备份 6/11–9/17（75 天）](session-backup-2026-09-17.md) — 这些天索引无单条描述，实体文件是 session-backup-YYYY-MM-DD.md，要查某天直接按日期读该文件
+- [2026-09-17全天工作备份](session-backup-2026-09-17.md)
 - [6/24全天工作备份](session-backup-2026-06-24.md) — 双轨PK启动、亨通成本修正、记忆系统升级
 - [6/25全天工作备份](session-backup-2026-06-25.md) — 亨通止盈+126空仓、策略1全市场0信号(当时bug未发现)
 - [重启预防策略](reboot-prevention-strategy.md) — 同花顺elf.exe崩溃是主因，非交易时间关闭robot+系统监控
