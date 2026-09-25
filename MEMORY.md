@@ -91,3 +91,4 @@
 - [剧本卡共用底座G1~G9 9/25](script-card-base-patch-2026-09-23.md) — 两本正文九成逐字相同错误成对；七改=优先级链/三底线收一源/格式收一版/群像统一/场外改条件式(人设飘根因)/十三结局/数值单源；★最大教训=世界书 constant+position:before_char 条目是"第二权威"嗓门比描述大, G2/G3/G4/G5四条被每回合重新注入→只改描述等于没改, 必须同步卡内character_book+桌面文件；★★PNG卡有两个tEXt块 key=chara 与 ccv3(除spec v2/v3外逐字相同), 按startswith(b'chara')筛只拿到1块；description须文本层replace, character_book是紧凑JSON可dict层改写(逐字节可逆)；幸福2卡内id31 keys是list/id32是string且共用ins_order, 心动卡内无insertion_order, 新增条目必须克隆同卡结构
 
 - [2026-09-24全天工作备份](session-backup-2026-09-24.md)
+- [2026-09-25全天工作备份](session-backup-2026-09-25.md)
