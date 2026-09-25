@@ -1,11 +1,11 @@
 ---
 name: script-card-base-patch-2026-09-23
-description: "9/23 幸福小区+心动囚笼共用底座七改；酒馆PNG卡\"定点文本替换\"改法（chara==ccv3、必须保V1顶层镜像字段、别用V2-only的磁盘JSON整体覆盖）"
+description: "9/23~25 幸福小区+心动囚笼共用底座 G1~G9；最大教训=世界书constant条目是第二权威会每回合把描述改回旧形态；PNG卡有两个tEXt块key=chara与ccv3；description须文本层替换而character_book可dict层改写"
 metadata: 
   node_type: memory
   type: project
   originSessionId: 3c0e0537-89c7-41d2-a760-fecbe16ff6e8
-  modified: 2026-09-25T12:27:46.639Z
+  modified: 2026-09-25T12:27:53.645Z
 ---
 
 2026-09-23 做两本剧本的**共用底座**优化（爸爸选了方案A：两本共有的结构病先一起修）。
