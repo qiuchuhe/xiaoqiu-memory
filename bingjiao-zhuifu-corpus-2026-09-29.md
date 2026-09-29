@@ -1,11 +1,11 @@
 ---
 name: bingjiao-zhuifu-corpus-2026-09-29
-description: 《我走了，病娇们全疯了》全书总体大纲定稿（D:\病娇追夫文\），人物/五部结构/三大装置；已确认自己看+按突发灵感版
+description: 《我走了，病娇们全疯了》全书总体大纲封版+分部细纲（D:\病娇追夫文\），八部430章100万字，李家是男主原生家族；自己看+按突发灵感版
 metadata:
   node_type: memory
   type: project
   originSessionId: 3c0e0537-89c7-41d2-a760-fecbe16ff6e8
-  modified: 2026-09-29T19:33:33.013Z
+  modified: 2026-09-29T19:40:50.187Z
 ---
 
 2026-09-29 建、09-30 定稿。项目 **`D:\病娇追夫文\`**（`src\` 资料库 / `语料\` / `分析\` / `正文\`，对齐 [[openwrite-skill-storage-d-drive-2026-09-15]] 的 src 规范）。
