@@ -9,6 +9,7 @@
 - [绝区零ZZMI换装mod环境 9/10](zzz-mod-setup-2026-09-10.md) — XXMI装D:\XXMI(ZZMI须与Resources平级/核心在Resources\Packages)，GitHub不通走gh-proxy.com，bsdtar能解rar/7z，每角色只启用1个其余DISABLED_前缀，国服HoYoKProtect封号风险已告知
 - [幸福小区情趣升级 8/31](幸福小区情趣升级-2026-08-31.md) — 爸爸改林小棠19岁只改1处我补齐5处残留；15女主全成年、15条情趣线+情趣基调+尺度红线，PNG收集重建法坑/CRLF混合坑；三改豆包融合(四铁律/6槽位/群像勿单线)+对抗审查8处残留清零(周敏/沈清台词污染已正)；五改噩梦模式黑化共享主线(三底线=醉酒诱惑诱导非强迫/醉酒失守→逃离→每地3女→全员得手→共享支配，卡片19403字+世界书32条，两剧本同改)
 - [SillyTavern默认角色恢复 8/31](sillytavern-default-character-restore-2026-08-31.md) — 前端会把active_character写回settings，改默认角色需爸爸关标签页或界面点选；心动囚笼世界书靠globalSelect挂载
+- [★酒馆位置与桌面启动器 10/8](sillytavern-install-and-launcher.md) — 本体在D:\虚拟人总项目\SillyTavern-1.18.0(不是D:\SillyTavern那个live2d包)，端口8000自动开浏览器，cd进去node server.js；桌面「启动酒馆.bat」双击即用；★bat中文坑=必须GBK+CRLF，UTF-8会被cmd撕行
 - [GPT-SoVITS语音克隆 8/23](gpt-sovits-tts-setup-2026-08-23.md) — 8/23首装放弃→8/28重建，许知糯已接鸣潮声线，provider必须用GPT-SoVITS-V2(Unofficial)，等爸爸网盘下星瞳声线包
 - [下载全走D盘规则 8/28](all-downloads-to-d-drive.md) — 爸爸明确不要占C盘，pip缓存永久设D:\pip_cache，pip.ini用无中文路径避免乱码
 - [C盘膨胀源与可清理项 9/13](c-drive-bloat-sources.md) — 三大自动膨胀源(NVIDIA着色器缓存/育碧patch缓存每次+577MB/豆包微信日志)；隐藏的pagefile16.7G+hiberfil6.1G；删除前必须爸爸点名否则权限拦
