@@ -1,11 +1,11 @@
 ---
 name: character-base-mesh-workflow
-description: 爸爸定的造角色标准流程——先锁脸(胸口以上)→扩半身→全身立绘→穿衣，每层都垫上一层的图
+description: 爸爸定的造角色标准流程——锁脸→定发型→人脸四视图→表情母版→全身→服装→穿搭四视图(半身+全身)→带服装表情卡，每层都垫上一层的图
 metadata:
   node_type: memory
   type: project
   originSessionId: eaec323c-5b87-4b2a-aa70-1e37e7818350
-  modified: 2026-10-10T02:32:41.605Z
+  modified: 2026-10-10T02:32:47.999Z
 ---
 
 2026-10-08，爸爸定下造角色的**标准资产流程**（原话：「标准资产制作流程就是**先锁脸，再做全身**，这也是 AI 漫剧做角色资产最稳的一套顺序，刚好适配咱们现在的工作」）。
